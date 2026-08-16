@@ -1,0 +1,15 @@
+{
+    "chat.mcp.gallery.enabled": true,
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.location": "top",
+    "workbench.auxiliaryActivityBar.location": "top",
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Monokai",
+    "kilo-code.debug": false,
+    "kilo-code.allowedCommands": [
+        "git log",
+        "git diff",
+        "git show"
+    ],
+    "kilo-code.deniedCommands": [],
+}
