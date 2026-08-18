@@ -21,16 +21,18 @@ Risk sınıfı — seremoni dozunu belirler:
 1.11. Asla budanmaz: Güvenlik, erişilebilirlik, veri bütünlüğü ve hata toleransı; hız veya minimalizm gerekçesiyle kısaltılmaz.
 
 2. Araç Disiplini
-2.1. Araçlar gerektiği adımda, minimum sorgu ile çağrılır; gereksiz araç çağrısı yapılmaz. Hangi aracın hangi adımda kullanılacağı İş Akışı'nda tanımlıdır (1.2 sequential-thinking, 1.3 codegraph, 1.4 Context7, 1.7 sync ve memory).
-2.2. Araç çıktıları bağlama özetlenmiş ve işlenmiş biçimde dahil edilir; ham çıktı aktarılmaz.
-2.3. Yanlış giden yol ve başarısız denemeler memory'ye kaydedilir; aynı hata ikinci kez araştırılmaz.
+2.1. Kullanılabilir bütün mcp ve skill'ler etkin şekilde her adımda kullanılır, sağaldığı avantajları kullanmaktan asla ödün verilmez.
+2.2. Araçlar gerektiği adımda, minimum sorgu ile çağrılır; gereksiz araç çağrısı yapılmaz. Hangi aracın hangi adımda kullanılacağı İş Akışı'nda tanımlıdır (1.2 sequential-thinking, 1.3 codegraph, 1.4 Context7, 1.7 sync ve memory).
+2.3. Araç çıktıları bağlama özetlenmiş ve işlenmiş biçimde dahil edilir; ham çıktı aktarılmaz.
+2.4. Yanlış giden yol ve başarısız denemeler memory'ye kaydedilir; aynı hata ikinci kez araştırılmaz.
 
-3. İletişim
+
+4. İletişim
 3.1. Yanıtlar gereksiz açıklama, tekrar ve teorik bilgiyle şişirilmez; net ve kısa yazılır. İlk cümle asıl cevaptır; giriş ve ısınma cümlesi yazılmaz.
 3.2. Kesinlik taklidi yapılmaz: Doğrulanamayan bilgi "doğrulanmalı" etiketi ve gerekçesiyle verilir; isim, sayı, kaynak, API ve parametre uydurulmaz — bilinmiyorsa yokluğu beyan edilir.
 3.3. Çatışan hedeflerde öncelik sırası: Doğruluk ve güvenlik > kararlılık > hız > token tasarrufu. Token tasarrufu için yarım veya doğrulanmamış kritik değişiklik üretilmez.
 
-4. Kod Kalitesi
+5. Kod Kalitesi
 4.1. Yarım kod yazılmaz; TODO, FIXME, "gerisi aynı" gibi yer tutucu bırakılmaz.
 4.2. Kullanılmayan import, fonksiyon, değişken ve yorum bloğu (ölü kod) bırakılmaz.
 4.3. Tek Sorumluluk: Her fonksiyon tek bir iş yapar.
@@ -40,13 +42,13 @@ Risk sınıfı — seremoni dozunu belirler:
 4.7. Sihirli sayı ve metinler SCREAMING_SNAKE_CASE sabit olarak tanımlanır.
 4.8. Diff disiplini: Yeni dosya tam verilir; mevcut dosya minimal diff ile değiştirilir; aynı dosyadaki bağımsız değişiklikler ayrı bloklarda sunulur; biçimlendirme değişikliği işlevsel değişiklikle karıştırılmaz.
 
-5. İsimlendirme ve Türkçe
+6. İsimlendirme ve Türkçe
 5.1. Açıklamalar, planlar, analizler ve kod yorumları Türkçe yazılır.
 5.2. UI metinleri Türkçe imla kurallarına uyar; ğ, ü, ş, ı, ö, ç karakterleri eksiksiz kullanılır.
 5.3. Değişken, fonksiyon, sınıf ve dosya isimleri Türkçe kökenli ve ASCII uyumlu yazılır (`kullaniciAdi`, `siparisOlustur`).
 5.4. İstisnalar, orijinal haliyle Türkçeleştirilmez: Framework ve dil zorunlulukları (`useState`, `__construct`), standart kütüphane isimleri (`map`, `filter`, `JSON.stringify`), üçüncü parti paket ve API isimleri, HTTP metotları ve durum kodları (`GET`, `POST`, `404`), veritabanı tablo, kolon ve ORM şema alanları.
 
-6. Güvenlik
+7. Güvenlik
 6.1. Kullanıcı girdileri tip, uzunluk ve format açısından doğrulanır.
 6.2. Veritabanı sorgularında daima prepared statement kullanılır; string birleştirmesiyle SQL üretilmez.
 6.3. Kullanıcıdan gelen metinler escape veya sanitize edilmeden render edilmez; ham HTML render edilmez.
@@ -57,7 +59,7 @@ Risk sınıfı — seremoni dozunu belirler:
 6.8. HTTP yanıtlarında stack trace, sunucu dosya yolu veya veritabanı detayı son kullanıcıya ifşa edilmez.
 6.9. Dosya yüklemede uzantı, MIME tipi ve boyut kontrolleri yapılır; istemciden gelen ham dosya adına güvenilerek diske yazılmaz.
 
-7. Hata Yönetimi
+8. Hata Yönetimi
 7.1. Boş catch bloğu yazılmaz; hiçbir hata sessizce yutulmaz veya gizlenmez.
 7.2. Kullanıcıya Türkçe, anlamlı ve eyleme geçirilebilir (actionable) hata mesajı gösterilir.
 7.3. Stack trace son kullanıcıya gösterilmez; yalnızca sistem loglarına yazılır.
