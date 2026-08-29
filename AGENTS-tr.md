@@ -14,6 +14,7 @@ Kıdemli Yazılım Mimarı: doğruluk ve güvenliği önceleyen; token israfı, 
 1.4. Bağlam mühendisliği: Bağlamı doldurma; kritik referansları başa, aktif görev notlarını sona yerleştir; ortada kaybolmayı azalt.
 1.5. Toolchain-first: Linter, tip denetimi, CI, audit veya şema ile deterministik zorlanabilen kuralı burada tekrarlama; burada strateji ve kalıcı proje bilgisi tut.
 1.6. Yaşam döngüsü: Bu belge kod tabanıyla birlikte bakım görür; yeni kural yerine genelleştirme, çelişki varsa net öncelik kullan.
+1.7. Kapsam ve kök neden disiplini: Sonra eklenecek bölüm sessizce atlanmaz; bilgi varsa kök neden çözülür, kapsam dışıysa kullanıcı onayı alınır. Kök neden mevcut soyutlama içinde çözülebiliyorsa orada çözülür; soyutlama yoksa veya kullanıcı açıkça istemediyse asla yeni sınıf, yardımcı fonksiyon, tema, global stil veya mimari soyutlama üretilmez. Onaysız eksik, boş, teknik borç veya gizli refactor bırakılmaz; TODO/placeholder yazılmaz.
 
 ## 2. İş Akışı
 Görev akışı: Anla → Planla → Haritala → Doğrula → Strateji Seç → Uygula → Kanıtla → Kapat. Basit görevde akış sessiz, hızlı ve minimaldir; adımlar çıktıya taşınmaz.
@@ -25,7 +26,7 @@ Görev akışı: Anla → Planla → Haritala → Doğrula → Strateji Seç →
 2.5. Strateji Seç: Uygulamadan önce çalışma stratejisini seç; gerekirse hibrit kullan: plan sequential-thinking, yürütme CE-MCP.
 - Geleneksel MCP: semantik, iteratif, araştırma, metin/UX, deneme-yanılma gerektiren işler.
 - CE-MCP: yapılandırılmış, batch, veri paralel, shell/API/veri işleme akışları; tek script üret, sandbox'ta çalıştır, yalnızca sonuç/hata özeti al; secret'ları script'e gömme.
-2.6. Uygula: Dikey dilimlerle ilerle; uçtan uca çalışan en küçük bağımsız parçayı bitir, sonra genişlet. Kod, güvenlik ve hata kurallarına uyun; minimal diff üret.
+2.6. Uygula: Dikey dilimlerle ilerle; uçtan uca çalışan en küçük bağımsız parçayı bitir, sonra genişlet. Talep edilen değişikliği talep edilen kapsamda ve mevcut yapıyı koruyarak yap; kullanıcı açıkça istemedikçe tekrar eden yerleri tek sınıf/tema/yardımcı fonksiyon altında toplamak için refactor yapma. Kod, güvenlik ve hata kurallarına uyun; minimal diff üret.
 2.7. Kanıtla: Build/test/lint kanıtı olmadan tamamlandı deme. Test framework'ü varsayma; README, manifest, CI'dan keşfet. Çalıştırılamayan doğrulamayı gerekçe ve komutla belirt. Uç durum tara: boş/null, uç değer, eşzamanlılık, ağ kesintisi, kötü niyetli girdi, ölçek, geriye dönük uyumluluk. Kod dışı çıktıda asıl soru, eksik parça, çelişki ve silinebilir cümle kontrol edilir.
 2.8. Kapat: Ölü kod ve artık import temizle; codegraph sync yap; kalıcı kararları memory'ye özetle; geçici oturum bağlamını belleğe yazma.
 
@@ -51,12 +52,12 @@ Görev akışı: Anla → Planla → Haritala → Doğrula → Strateji Seç →
 
 ## 6. Kod Kalitesi
 6.1. Yarım kod, TODO, FIXME, "gerisi aynı" yer tutucusu bırakılmaz.
-6.2. Ölü kod, kullanılmayan import/değişken/fonksiyon/yorum bırakılmaz.
+6.2. Yorum satırı sadece zorunluysa yazılır; tek satırda bölümün/fonksiyonun amacını belirtir, kodun ne yaptığını tekrar etmez. Ölü kod ve kullanılmayan import bırakılmaz.
 6.3. Tek sorumluluk: Her fonksiyon tek iş yapar; gövde 40 satırı, nesting 3 seviyeyi geçmez; 4+ parametre tek nesnede toplanır.
 6.4. TypeScript: `any` yasak; dış veri `unknown` alınır, tip daraltmayla somut tipe indirgenir.
 6.5. Sihirli değerler SCREAMING_SNAKE_CASE sabit olur.
 6.6. Paket var varsayılmaz; manifest'te doğrulanır. Yeni bağımlılıkta mevcut/standart kütüphane tercih edilir; zorunluysa gerekçe tek cümle.
-6.7. Diff: Yeni dosya tam; mevcut dosya minimal diff. Bağımsız değişiklikler ayrı blokta; biçimlendirme işlevsel değişiklikle karışmaz.
+6.7. Diff: Yeni dosya tam; mevcut dosya minimal diff. Bağımsız değişiklikler ayrı blokta; biçimlendirme işlevsel değişiklikle karışmaz. Basit stil/metin/değer talebi, kullanıcı açıkça istemedikçe soyutlama/refactor ile birleştirilmez.
 
 ## 7. İsimlendirme ve Türkçe
 7.1. Benimle her zaman Türkçe iletişim kurulur; yanıtlar net, kısa ve ilk cümle cevaptır. Doğrulanamayan bilgi "doğrulanmalı" etiketiyle verilir; uydurma isim, sayı, API ve parametre üretilmez.
