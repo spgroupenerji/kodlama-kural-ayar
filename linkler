@@ -21,7 +21,16 @@ Bağlamı gereksiz şişirmeden, odak kaybı olmadan, kararlılığı ve verimli
 
 --------------------------------------
 
+winget install --id Google.AntigravityCLI
+winget install --id Google.AntigravityIDE
+winget install --id ZhipuAI.ZCode
+winget install --id SST.OpenCodeDesktop
+winget install --id SST.opencode
+
 npm install -g @deepseek-ai/dsh
+npm i -g cline
+npm i -g opencode-ai
+irm https://antigravity.google/cli/install.ps1 | iex
 
 --------------------------------------
 
