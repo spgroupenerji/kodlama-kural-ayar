@@ -5,11 +5,4 @@
     "workbench.auxiliaryActivityBar.location": "top",
     "editor.wordWrap": "on",
     "workbench.colorTheme": "Monokai",
-    "kilo-code.debug": false,
-    "kilo-code.allowedCommands": [
-        "git log",
-        "git diff",
-        "git show"
-    ],
-    "kilo-code.deniedCommands": [],
 }
