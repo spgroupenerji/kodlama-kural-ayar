@@ -37,4 +37,12 @@ irm https://antigravity.google/cli/install.ps1 | iex
 "https://qoder.com/marketplace"
 "https://github.com/anthropics/skills/tree/main/skills"
 
+-------------------------------------- npm sorunu çözümü aşağıdaki -powershell
+
+$k=[Microsoft.Win32.Registry]::LocalMachine.OpenSubKey("SYSTEM\CurrentControlSet\Control\Session Manager\Environment",$true);$p=$k.GetValue("Path","",[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames);if($p -notlike "*%APPDATA%\npm*"){$k.SetValue("Path","$p;%APPDATA%\npm",[Microsoft.Win32.RegistryValueKind]::ExpandString);Write-Host "Basariyla eklendi!" -ForegroundColor Green}else{Write-Host "Zaten ekli." -ForegroundColor Yellow};$k.Close()
+
+-------------------------------------- politika sorunu çözümü aşağıdaki -powershell
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
+
 --------------------------------------
