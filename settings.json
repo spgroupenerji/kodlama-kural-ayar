@@ -6,6 +6,7 @@
     "editor.wordWrap": "on",
     "workbench.colorTheme": "Monokai",
     "extensions.ignoreRecommendations": true,
+    "search.useIgnoreFiles": false,
     "permissions": {
         "allow": [
             "mcp(*)"
