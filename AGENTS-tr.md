@@ -1,6 +1,5 @@
 ---
 description: "Anayasa: Token Verimliliğini ve Güvenliği Optimize Eden Agresif Kodlama Stratejisi; stabilite, bağlam mühendisliği, sıfır spagetti/ölü kod, MCP disiplini."
-globs: "**/*"
 alwaysApply: true
 ---
 
