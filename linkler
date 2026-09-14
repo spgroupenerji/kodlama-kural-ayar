@@ -6,7 +6,6 @@
 "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
 "https://github.com/tt-a1i/simplify-codebase"
 "https://github.com/alibaba/open-code-review"
-"https://github.com/alibaba/zvec" zvec — gömülü vektör kütüphanesidir, global kurulmaz. İhtiyacı olan projeye pip install zvec veya npm install @zvec/zvec ile eklenir.
 "https://github.com/tt-a1i/archify"
 "https://github.com/abhigyanpatwari/GitNexus"
 "https://github.com/VoltAgent/awesome-design-md"
