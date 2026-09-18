@@ -1,73 +1,78 @@
 ## 1. Geliştirme Metodolojisi, TDD ve Süreç Ajanları
-* [obra/superpowers](https://github.com/obra/superpowers): 
-Kodlama ajanlarına sistemli bir yazılım geliştirme metodolojisi kazandıran bir beceri çerçevesidir. Ajanın hemen kod yazmaya girişmesini engelleyerek önce beyin fırtınası, şartname çıkarma, planlama ve TDD (Test-Driven Development) adımlarını uygulamasını sağlar.
 
-* [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail): 
-Ajanın gereksiz ve aşırı mühendislik içeren kod yazmasını engelleyen bir YAGNI (You Aren't Gonna Need It) aracıdır. Üçüncü parti kütüphaneler yerine yerel platform özelliklerini veya standart kütüphaneleri tercih ettirerek üretilen kod miktarını ve maliyeti azaltır.
+"github.com/obra/superpowers": 
+Ajanın hemen koda girmesini engelleyip beyin fırtınası, şartname, planlama ve TDD adımlarını uygulatan metodoloji çerçevesidir.
 
-* [mattpocock/skills](https://github.com/mattpocock/skills): 
-Gerçek mühendislik pratiklerini odağına alan bir beceri koleksiyonudur. Geliştiriciyi sorgulayan (/grill-me), alan modeli oluşturan (CONTEXT.md), TDD ve mimari iyileştirme adımları sunan modüller içerir.
+"github.com/DietrichGebert/ponytail": 
+Üçüncü parti paketler yerine yerel özellikleri tercih ettirerek aşırı mühendisliği ve kod kalabalığını önleyen YAGNI aracıdır.
 
-* [tt-a1i/simplify-codebase](https://github.com/tt-a1i/simplify-codebase): 
-Mevcut kod tabanlarındaki kazara oluşmuş karmaşıklığı, gereksiz soyutlamaları ve ölü sözleşmeleri tespit edip sistem davranışını bozmadan güvenle temizleyen bir analiz becerisidir.
+"github.com/mattpocock/skills": 
+Geliştiriciyi sorgulama "`/grill-me`", alan modelleme "`CONTEXT.md`" ve TDD gibi pratikler sunan mühendislik becerileri koleksiyonudur.
 
-* [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents): 
-Claude Code için ön uç, arka uç, DevOps, güvenlik ve test gibi 100'den fazla farklı role ayrılmış uzmanlaşmış alt ajan (subagent) tanımları ve şablonları sunan bir koleksiyondur. 
+"github.com/tt-a1i/simplify-codebase": 
+Kod tabanındaki gereksiz soyutlamaları, karmaşıklığı ve ölü yapıları davranış bozmadan temizleyen analiz becerisidir.
+
+"github.com/VoltAgent/awesome-claude-code-subagents":
+Claude Code için frontend, backend, DevOps ve test gibi 100'den fazla uzmanlaşmış alt ajan "subagent" şablonu sunar.
 
 ## 2. Ajan Orkestrasyonu, Hafıza ve Kendi Kendine Öğrenme
-* [ashutoshsinghpr7/wikiskill](https://github.com/ashutoshsinghpr7/wikiskill): 
-Ajanların çalışma geçmişlerini ve deneyimlerini kalıcı bir wiki bilgi tabanında derleyerek kendi becerilerini zamanla evrimleştirmesini ve geliştirmesini sağlayan bir araştırma uygulamasıdır.
 
-* [ruvnet/ruflo](https://github.com/ruvnet/ruflo): 
-Claude Code ve Codex gibi araçlar etrafında 100'den fazla uzman ajandan oluşan sürüler (swarms), oturumlar arası kalıcı bellek ve dağıtık koordinasyon katmanı sağlayan bir orkestrasyon çerçevesidir.
+"github.com/ashutoshsinghpr7/wikiskill": 
+Ajan deneyimlerini kalıcı bir wiki tabanında toplayarak yeteneklerini zamanla evrimleştirmesini sağlayan araştırma uygulamasıdır.
 
-## 3. Kod Analizi, Bilgi Grafikleri ve Kod İnceleme (Code Review)
-* [abhigyanpatwari/GitNexus](https://github.com/abhigyanpatwari/GitNexus): 
-Tüm kod tabanını yerel bir bilgi grafiğine (knowledge graph) dönüştüren sıfır sunuculu bir analiz motorudur. Ajanların fonksiyon çağrılarını, bağımlılıkları ve etki alanlarını (blast radius) tek sorguda MCP üzerinden görmesini sağlar.
+"github.com/ruvnet/ruflo": 
+Claude Code ve Codex için 100+ uzman ajandan oluşan sürüler, oturumlar arası kalıcı bellek ve dağıtık orkestrasyon sağlar.
 
-* [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify): 
-Kodları, mimari dokümanları, şemaları ve PDF'leri sorgulanabilir bir bilgi grafiğine dönüştürerek ajanın dosya aramak yerine ilişkisel harita üzerinden akıl yürütmesini sağlar.
+## 3. Kod Analizi, Bilgi Grafikleri ve Kod İnceleme "Code Review"
 
-* [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph): 
-Tamamen yerel çalışan, SQLite tabanlı bir kod bilgi grafiği aracıdır. Ajanların körlemesine dosya okumasını önleyerek doğrudan ilişkili sembolleri ve akışları MCP ile sunar.
+"github.com/abhigyanpatwari/GitNexus": 
+Kod tabanını yerel bilgi grafiğine dönüştürerek bağımlılıkları ve etki alanlarını "blast radius" MCP ile sorgulatan sunucusuz motordur.
 
-* [trailhq/Graft](https://github.com/trailhq/Graft): 
-Kod tabanını insan tarafından okunabilir Markdown bağlantı grafiğine dönüştüren bir sistemdir. Ajanların her oturumda projeyi baştan keşfetme maliyetini ve token tüketimini düşürür.
+"github.com/Graphify-Labs/graphify": 
+Kod, doküman ve şemaları bilgi grafiğine dönüştürüp ajanın ilişkisel harita üzerinden akıl yürütmesini sağlar.
 
-* [alibaba/open-code-review](https://github.com/alibaba/open-code-review): 
-Deterministik mühendislik filtreleri ile dil modellerini birleştiren hibrit bir kod inceleme aracıdır. Değişiklikleri satır bazlı analiz ederek güvenlik açıklarını ve hataları yüksek doğrulukla raporlar.
+"github.com/colbymchenry/codegraph": 
+SQLite tabanlı yerel bilgi grafiğiyle ilişkili sembol ve akışları MCP üzerinden sunarak kör dosya okumalarını önler.
+
+"github.com/trailhq/Graft": 
+Projeyi Markdown bağlantı grafiğine dönüştürerek ajanın kod keşif maliyetini ve token tüketimini düşürür.
+
+"github.com/alibaba/open-code-review":
+Kural bazlı filtreler ile LLM'leri birleştirerek satır bazlı hata ve güvenlik açıklarını tespit eden hibrit inceleme aracıdır.
 
 ## 4. UI/UX Tasarımı, Arayüz Sistemleri ve Görselleştirme
-* [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill): 
-Ajanlara 79 farklı arayüz stili, renk paletleri, tipografi eşleşmeleri ve sektör kuralları sunarak profesyonel tasarım sistemleri üretmelerini sağlayan kapsamlı bir tasarım zekâsı becerisidir.
 
-* [pbakaus/impeccable](https://github.com/pbakaus/impeccable): 
-Ajanların ürettiği şablonlaşmış ve birbirine benzeyen (AI slop) arayüz kalıplarını 61 deterministik kural ile denetleyen, tasarım kalitesini yükselten bir kılavuzdur.
+"github.com/nextlevelbuilder/ui-ux-pro-max-skill": 
+79 arayüz stili, renk paleti ve tipografi kuralıyla ajanın profesyonel tasarım sistemleri üretmesini sağlar.
 
-* [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md): 
-Popüler markaların (Apple, Stripe, Linear vb.) tasarım dillerinden çıkarılmış DESIGN.md dosyalarını içeren bir arşivdir. Projeye eklendiğinde ajanın ilgili markanın görsel diliyle uyumlu UI üretmesini sağlar.
+"github.com/pbakaus/impeccable": 
+Ajanların ürettiği basmakalıp "AI slop" tasarımları 61 kural ile denetleyerek kaliteyi yükselten tasarım kılavuzudur.
 
-* [DavidHDev/canvas-ui](https://github.com/DavidHDev/canvas-ui): 
-Canlı HTML öğeleri üzerine WebGL ve WebGPU tabanlı sıvı simülasyonları, cam ve kırılma efektleri giydiren yaratıcı bir açık kaynak bileşen kütüphanesidir.
+"github.com/VoltAgent/awesome-design-md": 
+Apple, Stripe gibi markaların tasarım dillerini içeren `DESIGN.md` arşividir; ajanın bu standartlarda UI üretmesini sağlar.
 
-* [tt-a1i/archify](https://github.com/tt-a1i/archify): 
-Kod tabanlarından veya sistem açıklamalarından etkileşimli, doğrulanabilir mimari, iş akışı ve sıralama diyagramları (HTML/SVG) oluşturan bir render motorudur.
+"github.com/DavidHDev/canvas-ui": 
+Canlı HTML öğelerine WebGL/WebGPU tabanlı akışkan, cam ve kırılma efektleri uygulayan bileşen kütüphanesidir.
+
+"github.com/tt-a1i/archify": 
+Kod tabanı veya sistem metinlerinden etkileşimli mimari ve iş akışı diyagramları "HTML/SVG" üreten render motorudur.
 
 ## 5. Tarayıcı Denetimi, CLI Dönüştürme, Güvenlik ve Video
-* [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp): 
-Ajanların canlı bir Chrome tarayıcısını MCP protokolü üzerinden kontrol etmesini, DOM/ağ trafiğini denetlemesini ve performans testleri yapmasını sağlayan resmi Google aracıdır.
 
-* [KitJacky/cli-anything](https://github.com/HKUDS/CLI-Anything): 
-Grafik arayüze (GUI) sahip yazılımların kaynak kodlarını analiz ederek ajanların doğrudan komut satırından kullanabileceği CLI araçlarına dönüştüren bir çerçevedir.
+"github.com/ChromeDevTools/chrome-devtools-mcp": 
+Ajanların Chrome'u MCP üzerinden kontrol etmesini, DOM/ağ trafiğini denetlemesini sağlayan resmi Google aracıdır.
 
-* [zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill): 
-Ajanların tersine mühendislik, sızma testi, CTF ve zararlı yazılım analizi görevlerinde doğru araç ve metodolojileri seçmesini sağlayan bir siber güvenlik yönlendiricisidir.
+"github.com/HKUDS/CLI-Anything": 
+Grafik arayüzlü "GUI" yazılımların kodunu analiz ederek ajanların doğrudan kullanabileceği CLI araçlarına dönüştürür.
 
-* remotion-dev/remotion: 
-React ve web teknolojilerini kullanarak kod ile programatik ve dinamik video/animasyon üretilmesini sağlayan popüler bir çerçevedir.
+"github.com/zhaoxuya520/reverse-skill": 
+Tersine mühendislik, sızma testi, CTF ve zararlı yazılım analizinde ajana doğru araç ve yöntemi seçtiren siber güvenlik kılavuzudur.
 
-* [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage): 
-Kodlama ajanlarını tam donanımlı bir video stüdyosuna çeviren açık kaynaklı bir video üretim sistemidir; arka planda Remotion, Piper TTS ve FFmpeg gibi araçları orkestre eder.
+remotion-dev/remotion: 
+React ve web standartlarını kullanarak kod ile programatik video ve animasyon üretme çerçevesidir.
+
+"github.com/calesthio/OpenMontage": 
+Remotion, Piper TTS ve FFmpeg'i orkestre ederek kodlama ajanını otonom bir video stüdyosuna dönüştüren araçtır.
 
 --------------------------------------
 
