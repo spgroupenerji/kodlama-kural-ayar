@@ -7,14 +7,16 @@
 "github.com/Graphify-Labs/graphify"                   Kod, doküman ve şemaları bilgi grafiğine dönüştürüp ajanın ilişkisel harita üzerinden akıl yürütmesini sağlar.
 "github.com/ChromeDevTools/chrome-devtools-mcp"       Ajanların Chrome'u MCP üzerinden kontrol etmesini, DOM/ağ trafiğini denetlemesini sağlayan resmi Google aracıdır.
 
-"github.com/alibaba/open-code-review"                 Kural bazlı filtreler ile LLM'leri birleştirerek satır bazlı hata ve güvenlik açıklarını tespit eden hibrit inceleme aracıdır.
-"https://github.com/mksglu/context-mode"              Sandbox filtrelemesiyle %98 token tasarrufu ve yerel oturum hafızası sağlayan otomatik bir MCP aracıdır.
-"github.com/HKUDS/CLI-Anything"                       Grafik arayüzlü "GUI" yazılımların kodunu analiz ederek ajanların doğrudan kullanabileceği CLI araçlarına dönüştürür.
-
 "github.com/nextlevelbuilder/ui-ux-pro-max-skill"     79 arayüz stili, renk paleti ve tipografi kuralıyla ajanın profesyonel tasarım sistemleri üretmesini sağlar.
 "github.com/pbakaus/impeccable"                       Ajanların ürettiği basmakalıp "AI slop" tasarımları 61 kural ile denetleyerek kaliteyi yükselten tasarım kılavuzudur.
 "github.com/VoltAgent/awesome-design-md"              Apple, Stripe gibi markaların tasarım dillerini içeren `DESIGN.md` arşividir; ajanın bu standartlarda UI üretmesini sağlar.
 "github.com/DavidHDev/canvas-ui"                      Canlı HTML öğelerine WebGL/WebGPU tabanlı akışkan, cam ve kırılma efektleri uygulayan bileşen kütüphanesidir.
+
+"github.com/alibaba/open-code-review"                 Kural bazlı filtreler ile LLM'leri birleştirerek satır bazlı hata ve güvenlik açıklarını tespit eden hibrit inceleme aracıdır.
+"https://github.com/mksglu/context-mode"              Sandbox filtrelemesiyle %98 token tasarrufu ve yerel oturum hafızası sağlayan otomatik bir MCP aracıdır.
+"github.com/HKUDS/CLI-Anything"                       Grafik arayüzlü "GUI" yazılımların kodunu analiz ederek ajanların doğrudan kullanabileceği CLI araçlarına dönüştürür.
+"https://github.com/microsoft/markitdown"             Dosya okuma token tasarrufu
+"https://github.com/headroomlabs-ai/headroom"         Denemedim -kısaca ara yönetici
 
 "github.com/remotion-dev/remotion"                    React ve web standartlarını kullanarak kod ile programatik video ve animasyon üretme çerçevesidir.
 "github.com/calesthio/OpenMontage"                    Remotion, Piper TTS ve FFmpeg'i orkestre ederek kodlama ajanını otonom bir video stüdyosuna dönüştüren araçtır.
