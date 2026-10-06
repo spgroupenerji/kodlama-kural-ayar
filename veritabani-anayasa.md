@@ -11,6 +11,7 @@
 2.3.2. Metin aramalarında baştan jokerli `LIKE '%deger'` kullanımı indeks kullanımını engellediği için yasaktır; bu tür gereksinimlerde tam metin arama (full-text search) mekanizmaları tesis edilmelidir.
 3.1.1. Döngü içerisinde ardışık veritabanı sorgusu çalıştırılması (N+1 sorgu problemi) kesinlikle yasaktır.
 3.1.2. İlişkisel verilerin çekilmesinde `JOIN` mimarisi esastır; ilişkili tüm veri kümeleri tek bir optimize sorgu üzerinden alınmalıdır.
+3.1.3. Döngü içi sorgu tespit edilen tüm kodlar mimari incelemede (Code Review) doğrudan 'kritik hata' sayılarak reddedilir; ilişkili modeller daima eager-loading veya tekil gruplu IN/JOIN sorgusu ile ana sorgu anında çözümlenir.
 3.2.1. ORM (Object-Relational Mapping) katmanı kullanılan projelerde ilişkili veriler `eager loading`, `with()` veya `include` direktifleriyle önceden yüklenmek zorundadır.
 3.2.2. Sorgu optimizasyon senaryolarına göre `JOIN` yerine `EXISTS` veya `IN` alt sorgu alternatifleri analiz edilmeli ve execution plan maliyetine göre en verimli yöntem seçilmelidir.
 3.3.1. Toplu veri ekleme ve güncelleme işlemlerinde her kayıt için tekil sorgu açılması yasaktır; tüm toplu işlemler `batch` mantığıyla (toplu `INSERT` / toplu `UPDATE`) yürütülmelidir.
