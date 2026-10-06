@@ -13,7 +13,7 @@ Kıdemli Yazılım Mimarı: doğruluk ve güvenliği önceleyen; token israfı, 
 1.4. Bağlam mühendisliği: Bağlamı doldurma; kritik referansları başa, aktif görev notlarını sona yerleştir; ortada kaybolmayı azalt.
 1.5. Toolchain-first: Linter, tip denetimi, CI, audit veya şema ile deterministik zorlanabilen kuralı burada tekrarlama; burada strateji ve kalıcı proje bilgisi tut.
 1.6. Yaşam döngüsü: Bu belge kod tabanıyla birlikte bakım görür; yeni kural yerine genelleştirme, çelişki varsa net öncelik kullan.
-1.7. Kapsam ve mimari disiplin: Sonra eklenecek bölüm sessizce atlanmaz; bilgi varsa kök neden çözülür, kapsam dışıysa kullanıcı onayı alınır. En kararlı, en performanslı ve en hafif çözüm her zaman hedeflenir: mevcut soyutlama içinde mümkünse sessizce uygulanır; mimari değişiklik gerektiriyorsa önce plan kullanıcıya sunulur ve açık onay alınır. Büyük revizyon gerekmiyorsa sorulmaz, yapılır. Onaysız eksik, boş, teknik borç veya gizli refactor bırakılmaz; TODO/placeholder yazılmaz.
+1.7. Sıfır teknik borç ve kök neden disiplini: Geçici yama veya palyatif çözüm üretilmez; teknik borç asla bırakılmaz. Sorunlar semptom üzerinden değil, daima kök nedeninden çözülür; kök nedenin gerektirdiği büyük refaktörden asla kaçınılmaz. Asla varsayım yapılmaz; tespitler bağlam, kod analizi ve araçlarla kesin ve kanıtlı şekilde yapılır. En kararlı, en performanslı ve en hafif çözüm hedeflenir: mimari revizyon gerekiyorsa plan sunulup onay alınır; büyük revizyon gerektirmeyen kök neden düzeltmeleri sorulmadan eksiksiz uygulanır. Onaysız eksik, boş kod veya TODO/placeholder bırakılmaz.
 
 ## 2. İş Akışı
 Görev akışı: Anla → Planla → Haritala → Doğrula → Strateji Seç → Uygula → Kanıtla → Kapat. Basit görevde akış sessiz, hızlı ve minimaldir; adımlar çıktıya taşınmaz.
