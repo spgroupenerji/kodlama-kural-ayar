@@ -5,6 +5,7 @@
 "github.com/colbymchenry/codegraph"                   SQLite tabanlı yerel bilgi grafiğiyle ilişkili sembol ve akışları MCP üzerinden sunarak kör dosya okumalarını önler.
 "github.com/trailhq/Graft"                            Projeyi Markdown bağlantı grafiğine dönüştürerek ajanın kod keşif maliyetini ve token tüketimini düşürür.
 "github.com/Graphify-Labs/graphify"                   Kod, doküman ve şemaları bilgi grafiğine dönüştürüp ajanın ilişkisel harita üzerinden akıl yürütmesini sağlar.
+"https://github.com/upstash/context7"
 "github.com/ChromeDevTools/chrome-devtools-mcp"       Ajanların Chrome'u MCP üzerinden kontrol etmesini, DOM/ağ trafiğini denetlemesini sağlayan resmi Google aracıdır.
 
 "github.com/nextlevelbuilder/ui-ux-pro-max-skill"     79 arayüz stili, renk paleti ve tipografi kuralıyla ajanın profesyonel tasarım sistemleri üretmesini sağlar.
