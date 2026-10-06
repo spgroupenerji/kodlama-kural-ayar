@@ -43,3 +43,6 @@
 8.1.2. Herhangi bir kural çelişkisi halinde; kullanıcının en güncel yazılı onayı ve talimatı en üstün bağlayıcı kaynaktır.
 8.2.1. Başta Tailwind CSS sözdizimi ve Iconify bileşen tanımları olmak üzere, mimaride kullanılan tüm yöntem ve sürümler Context7 üzerinden doğrulanmak zorundadır.
 8.2.2. Doğrulanmamış, varsayımsal veya deneysel yöntem ve sözdizimleri üretim ortamına ve sayfa kodlarına dâhil edilemez.
+9.1.1. Sidebar haricinde kalan ana operasyonel içerik alanı (`<main>` / sayfa gövdesi); ultra geniş ve 4K ekranlarda kontrolsüz yatay yayılmayı, bileşen kopukluklarını ve göz yorgunluğunu engellemek adına yatayda maksimum `max-w-7xl` (80rem / 1280px) sınıfı ile sınırlandırılmak zorundadır.
+9.1.2. İçerik alanı yatay eksende ortalanmalı (`mx-auto`) ve kenarlardan standart nefes payı (`px-4 sm:px-6 lg:px-8`) barındırmalıdır.
+9.1.3. Muafiyet: Tam ekran etkileşimli harita modülleri (Leaflet), tekil büyük SCADA topoloji şemaları veya yatay kaydırma gerektiren çok kolonlu telemetri tabloları bu sınırlandırmadan muaf olup `w-full` genişlik kullanabilir.
