@@ -21,6 +21,7 @@
 
 "github.com/remotion-dev/remotion"                    React ve web standartlarını kullanarak kod ile programatik video ve animasyon üretme çerçevesidir.
 "github.com/calesthio/OpenMontage"                    Remotion, Piper TTS ve FFmpeg'i orkestre ederek kodlama ajanını otonom bir video stüdyosuna dönüştüren araçtır.
+"https://github.com/OpenCut-app/OpenCut"
 
 "https://github.com/public-apis/public-apis"          Api listesi
 "https://github.com/sindresorhus/awesome"             Yazılım, teknoloji ve çeşitli ilgi alanlarına dair en kaliteli kaynakların listesi.
