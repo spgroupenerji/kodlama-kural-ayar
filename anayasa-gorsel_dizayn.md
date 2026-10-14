@@ -11,9 +11,8 @@
 2.2.1. Tailwind CSS ve ilgili istemci kütüphaneleri çalışma anında CDN üzerinden çağrılır.
 2.2.2. Çalışma zamanı kırılmalarını ve beklenmeyen sürüm uyuşmazlıklarını önlemek amacıyla CDN bağlantılarında `@latest` veya dinamik sürüm etiketleri yasaktır; sabitlenmiş sürüm etiketi (version pinned) kullanımı mecburidir.
 2.3.1. Standart arayüz bileşenleri için bağımsız `.css` dosyaları oluşturulması ve projeye dâhil edilmesi kesinlikle yasaktır.
-2.3.2. Sayfa şablonları içerisinde serbest HTML `<style>` blokları açılamaz.
-2.3.3. İstisna: Yalnızca Tailwind v4 `@theme` token tanımlamaları, özel WebKit kaydırma çubukları (scrollbar) ve `@page` yazdırma yönergeleri için sayfa başlığında tek bir `<style type="text/tailwindcss">` bloğu açılmasına izin verilir.
-2.3.4. Kütüphane İstisnası: Harita ve benzeri bileşenlerin render bütünlüğü için zorunlu olan harici stil sayfaları (`leaflet.css` vb.) yalnızca ilgili modül sayfalarında izole olarak çağrılabilir.
+2.3.2. Sayfa şablonları içerisinde serbest HTML `<style>` blokları zorunlu olmadıkça açılamaz.
+2.3.3. Kütüphane İstisnası: Harita ve benzeri bileşenlerin render bütünlüğü için zorunlu olan harici stil sayfaları (`leaflet.css` vb.) yalnızca ilgili modül sayfalarında izole olarak çağrılabilir.
 2.4.1. Statik görsel düzenleme, konumlandırma ve boşluk amaçlı `style="display:flex; margin:10px;"` gibi tüm satır içi kullanımlar kesinlikle yasaktır.
 2.4.2. Satır içi `style="..."` kullanımı; yalnızca çalışma anında JavaScript tarafından dinamik hesaplanan mutlak koordinatlar (ör: `style="left: ${x}px; top: ${y}px;"`), anlık genişlik/yükseklik yüzdeleri ve matematiksel SVG hesaplamaları ile sınırlıdır.
 3.1.1. Rastgele, kontrolsüz ve birden fazla Google Fonts bağlantısının (Inter, Roboto, Montserrat vb. fontların aynı anda çağrılması) projeye eklenmesi yasaktır.
