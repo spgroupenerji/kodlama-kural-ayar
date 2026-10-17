@@ -1,7 +1,3 @@
-# Linkler — Ajan Araçları ve Kaynaklar
-
-> **Doğrulama:** 17 Ekim 2026 — bu dosyadaki tüm GitHub depoları HTTP 200 döndü, yönlendirme (rename) yok. Parantez içindeki yıldız sayıları GitHub API'den o günkü değerlerdir; sıralama değil, olgunluk göstergesidir.
-
 ## 1. Metodoloji ve Disiplin
 
 - https://github.com/obra/superpowers - Ajanın hemen koda girmesini engelleyip beyin fırtınası, şartname, planlama ve TDD adımlarını uygulatan metodoloji çerçevesi.
@@ -41,31 +37,29 @@ Kod ile video üretme hattı üç katmandan oluşur: **render motoru** (Remotion
 
 ### 5.1 Ajan Yetenekleri (skill paketleri)
 
-- https://github.com/AbubakrChan/product-launch-motion - Koddan Dribbble seviyesinde ürün lansman videosu üreten Claude Code skill'i; tek şekil hiç kesilmez. (★ 300)
-- https://github.com/charlie947/motion-graphics-skills - Lansman kalitesinde hareketli grafik için 13 Claude Code skill'i; her kare kod, After Effects yok. (★ 309)
-- https://github.com/howseen-ai/claude-motion-design - Saf kodla motion design: HTML + Playwright + ffmpeg; müzik ritmine duyarlı video. (★ 556)
-- https://github.com/nateherkai/herk-edit-kit - Codex veya Claude Code ile video, Reels ve YouTube Shorts kurgusu; HyperFrames + GSAP tabanlı. (★ 1.686)
-- https://github.com/Barty-Bart/motion-graphics - Claude Code ve Codex için motion-graphics skill'leri: konuşmaya senkron B-roll, arka plan izolasyonu. (★ 711)
-- https://github.com/cth9191/animate - Her stilde (piksel sanatı, kesme kâğıt vb.) prosedürel animasyon: hikâye ve ses içeren tek dosya canvas videoları. (★ 768)
-- https://github.com/whaleyxbt/claude-motion - Kodlama ajanları için motion design araç kiti; ses motoru ve kare kare kalite kontrol döngüsü. (★ 449)
-- https://github.com/haidrrrry/claude-remotion-skill - Claude Code, Claude Desktop ve Claude AI'a Remotion ile B-roll, altyazı ve ses tasarımı üretmeyi öğreten açık kaynak skill. (★ 487)
-- https://github.com/199-biotechnologies/motion-dev-animations-skill - Motion.dev için Claude Code skill'i: 120fps web animasyonu, yay fiziği, scroll efekti ve gesture. (★ 188)
-- https://github.com/remotion-dev/skills - Resmî ajan skill'leri: kodlama ajanlarına Remotion kurallarını ve proje yapısını öğretir. (★ 5.259)
-- https://github.com/greensock/gsap-skills - GSAP'in resmî AI skill'leri; zaman çizelgesi ve animasyonu doğru API ile kullandırır. (★ 16.516)
-- https://github.com/LottieFiles/motion-design-skill - Zamanlama, easing, koreografi ve Disney'in 12 animasyon prensibini ajanlara aktaran evrensel prensip deposu. (★ 2.263)
+- https://github.com/AbubakrChan/product-launch-motion - Koddan Dribbble seviyesinde ürün lansman videosu üreten Claude Code skill'i; tek şekil hiç kesilmez.
+- https://github.com/charlie947/motion-graphics-skills - Lansman kalitesinde hareketli grafik için 13 Claude Code skill'i; her kare kod, After Effects yok.
+- https://github.com/howseen-ai/claude-motion-design - Saf kodla motion design: HTML + Playwright + ffmpeg; müzik ritmine duyarlı video.
+- https://github.com/nateherkai/herk-edit-kit - Codex veya Claude Code ile video, Reels ve YouTube Shorts kurgusu; HyperFrames + GSAP tabanlı.
+- https://github.com/Barty-Bart/motion-graphics - Claude Code ve Codex için motion-graphics skill'leri: konuşmaya senkron B-roll, arka plan izolasyonu.
+- https://github.com/cth9191/animate - Her stilde (piksel sanatı, kesme kâğıt vb.) prosedürel animasyon: hikâye ve ses içeren tek dosya canvas videoları.
+- https://github.com/whaleyxbt/claude-motion - Kodlama ajanları için motion design araç kiti; ses motoru ve kare kare kalite kontrol döngüsü.
+- https://github.com/haidrrrry/claude-remotion-skill - Claude Code, Claude Desktop ve Claude AI'a Remotion ile B-roll, altyazı ve ses tasarımı üretmeyi öğreten açık kaynak skill.
+- https://github.com/199-biotechnologies/motion-dev-animations-skill - Motion.dev için Claude Code skill'i: 120fps web animasyonu, yay fiziği, scroll efekti ve gesture.
+- https://github.com/remotion-dev/skills - Resmî ajan skill'leri: kodlama ajanlarına Remotion kurallarını ve proje yapısını öğretir.
+- https://github.com/greensock/gsap-skills - GSAP'in resmî AI skill'leri; zaman çizelgesi ve animasyonu doğru API ile kullandırır.
+- https://github.com/LottieFiles/motion-design-skill - Zamanlama, easing, koreografi ve Disney'in 12 animasyon prensibini ajanlara aktaran evrensel prensip deposu.
 
 ### 5.2 Render Motorları ve Animasyon Kütüphaneleri
 
-- https://github.com/motiondivision/motion - React, Vue ve JavaScript için arayüz, buton ve sayfa geçiş animasyonu kütüphanesi (eski adı Framer Motion). (★ 34.220)
-- https://github.com/heygen-com/hyperframes - HTML ve CSS tasarımlarını doğrudan MP4'e çeviren açık kaynak çatı; ajanlar için tasarlandı. (★ 65.481)
-- https://github.com/remotion-dev/remotion - React bileşenleriyle programatik video üretme kütüphanesi. (★ 64.637)
+- https://github.com/motiondivision/motion - React, Vue ve JavaScript için arayüz, buton ve sayfa geçiş animasyonu kütüphanesi (eski adı Framer Motion).
+- https://github.com/heygen-com/hyperframes - HTML ve CSS tasarımlarını doğrudan MP4'e çeviren açık kaynak çatı; ajanlar için tasarlandı.
+- https://github.com/remotion-dev/remotion - React bileşenleriyle programatik video üretme kütüphanesi.
 
 ### 5.3 Ek Video Araçları
 
 - https://github.com/calesthio/OpenMontage - Remotion, Piper TTS ve FFmpeg'i orkestre ederek kodlama ajanını otonom video stüdyosuna dönüştürür.
 - https://github.com/OpenCut-app/OpenCut - Açık kaynak video düzenleyici.
-
-**Entegrasyon notu:** Bu araçlardan birini projeye alırken iki bilgi gerekir — hangi ajan/editör (Claude Code, Codex, Cursor vb.) ve hedef çıktı (ürün lansmanı, Reels kurgusu, web animasyonu). Kurulum komutu ve şablon bu iki değişkene göre değişir.
 
 ## 6. Editör ve CLI Dokümantasyonu
 
