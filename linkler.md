@@ -124,6 +124,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 
 - [public-apis/public-apis](https://github.com/public-apis/public-apis) — API listesi.
 - [sindresorhus/awesome](https://github.com/sindresorhus/awesome) — yazılım, teknoloji ve çeşitli ilgi alanlarına dair en kaliteli kaynakların listesi.
+- [eyaprak/skills](https://github.com/eyaprak/skills) — YouTube videolarında gösterilen Claude Code skill'lerinin toplandığı depo; `seo-expert` skill'i buradan indirildi.
 
 ---
 
