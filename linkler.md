@@ -49,9 +49,10 @@ Kod ile video üretme hattı üç katmandan oluşur: **render motoru** (Remotion
 
 ### 5.1 Ajan Yetenekleri (skill paketleri)
 
+- [AbubakrChan/product-launch-motion](https://github.com/AbubakrChan/product-launch-motion) — Koddan Dribbble seviyesinde ürün lansman videosu üreten Claude Code skill'i; tek şekil hiç kesilmez.
+
 | # | Araç | Depo | ★ | Ne yapar |
 |---|---|---|---|---|
-| 1 | Product Launch Motion | [AbubakrChan/product-launch-motion](https://github.com/AbubakrChan/product-launch-motion) | 300 | Koddan Dribbble seviyesinde ürün lansman videosu üreten Claude Code skill'i; tek şekil hiç kesilmez. |
 | 2 | Motion Graphics Skills | [charlie947/motion-graphics-skills](https://github.com/charlie947/motion-graphics-skills) | 309 | Lansman kalitesinde hareketli grafik için 13 Claude Code skill'i; her kare kod, After Effects yok. |
 | 3 | Claude Motion Design | [howseen-ai/claude-motion-design](https://github.com/howseen-ai/claude-motion-design) | 556 | Saf kodla motion design: HTML + Playwright + ffmpeg; müzik ritmine duyarlı video. |
 | 4 | Herk Edit Kit | [nateherkai/herk-edit-kit](https://github.com/nateherkai/herk-edit-kit) | 1.686 | Codex veya Claude Code ile video, Reels ve YouTube Shorts kurgusu; HyperFrames + GSAP tabanlı. |
