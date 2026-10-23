@@ -258,7 +258,7 @@ api      composer.json  data            deploy_webhook.php  error_log  js       
 api.php  config.php     deploy_kur.php  destek              index.php  login.php  php.ini  sidebar
 ```
 
-Öne çıkan girdiler: `deploy_webhook.php` ve `deploy_kur.php` bu uygulamanın deploy dosyalarıdır (yukarıdaki 3. bölümdeki mekanizmanın karşılığı); `js/` dizini yerel belge üretim kütüphanelerini barındırır (bkz. `istemci-tarafi-belge-uretimi.md`).
+Öne çıkan girdiler: `deploy_webhook.php` ve `deploy_kur.php` bu uygulamanın deploy dosyalarıdır (yukarıdaki 3. bölümdeki mekanizmanın karşılığı); `js/` dizini yerel belge üretim kütüphanelerini barındırır (bkz. `php-yapi-konvansiyonu.md` §5).
 
 ## 6) Güvenlik Notu
 
