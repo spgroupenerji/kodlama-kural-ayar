@@ -1,33 +1,27 @@
 # GitHub + cPanel Kurulum ve Deploy Rehberi
 
-> Kaynak: `github-cpanel-pc.md` (metin belgesi; gömülü GitHub Personal Access Token **[MASKED]** yapıldı — bkz. son bölümdeki güvenlik notu)
+İlk Yükleme
 
-## 1) cPanelden GitHub'a İlk Yükleme
-
-```bash
-# 1. Proje dizinine geçin
-cd /home/<kullanici>/...
-
-# 2. Git deposunu başlatın
+# 1. Git deposunu başlatın
 git init
 
-# 3. GitHub adresinizi origin olarak tanımlayın
+# 2. GitHub adresinizi origin olarak tanımlayın
 git remote add origin https://github.com/<kullanici>/......git
 
-# 4. Tüm dosyaları Git takibine ekleyin
+# 3. Tüm dosyaları Git takibine ekleyin
 git add .
 
-git config --global user.name '<kullanici>'
-git config --global user.email '<e-posta>'
+git config --global user.name 'spgroupenerji'
+git config --global user.email 'spgroup.enerji@gmail.com'
 
-# 5. Dosyaları ilk kayıt (commit) olarak paketleyin
-git commit -m "cPanelden yükleme"
+# 4. Dosyaları ilk kayıt (commit) olarak paketleyin
+git commit -m 'cPanel'
 
-# 6. Dal adını GitHub standartı olan main yapın
+# 5. Dal adını GitHub standartı olan main yapın
 #    (veya master tercih ediyorsanız: git branch -M master)
 git branch -M main
 
-# 7. Dosyaları boş repoya gönderin
+# 6. Dosyaları boş repoya gönderin
 git remote set-url origin 'https://<kullanici>:[MASKED - GitHub PAT]@github.com/<kullanici>/repoadi.git'
 git push -u origin main
 ```
@@ -35,9 +29,6 @@ git push -u origin main
 ## 2) GitHub Şifre İstediğinde (Personal Access Token)
 
 `git push` komutunu girdiğinizde sizden Username ve Password isteyecektir.
-
-- **Username:** GitHub kullanıcı adınız (`<kullanici>`).
-- **Password:** GitHub hesap şifreniz **değildir** (GitHub artık terminalde şifre kabul etmez). Bunun yerine GitHub'dan alacağınız bir **Personal Access Token (classic)** girmeniz gerekir.
 
 Nasıl alınır? GitHub'da:
 **Settings > en altta Developer Settings > Personal access tokens (tokens classic) > Generate new token** > `repo` kutucuğunu işaretleyip token'ı kopyalayın ve terminalde şifre alanına yapıştırın.
@@ -52,8 +43,6 @@ Nasıl alınır? GitHub'da:
    git fetch origin && git merge --ff-only origin/master
    ```
 
-   Bu, bekleyen `646d966` işaret commit'ini de getirir.
-
 2. **Sırrı sunucuya koyun:**
 
    ```bash
@@ -66,9 +55,8 @@ Nasıl alınır? GitHub'da:
 
    | Alan | Değer |
    | --- | --- |
-   | Payload URL | `https://fatura.<alanadi>.com.tr/deploy/deploy.php?kanca=github` |
-   | Payload URL (2) | `https://cankaya.<alanadi>.com.tr/deploy/deploy.php?kanca=github` |
-   | Payload URL (3) | `https://booklayer.<alanadi>.com.tr/deploy/deploy.php?kanca=github` |
+   | Payload URL | `https://<alanadi>.com.tr/deploy/deploy.php?kanca=github` |
+   | Payload URL (2) | `https://<alanadi>.com/deploy/deploy.php?kanca=github` |
    | Content type | `application/json` |
    | Secret | 2. adımdaki değer |
    | SSL verification | Enable |
@@ -82,21 +70,14 @@ Nasıl alınır? GitHub'da:
    git fetch origin && git merge --ff-only origin/main
    ```
 
-5. **Bash varyantı — `app.<alanadi>.com` (<sunucu>):** Güncelleme tek satırlık bir komutla da yapılabilir; sonuç `/home/kullanici/deploy.log` dosyasına yazılır (Kaynak: SSH oturum dökümü, 2026-10-23):
-
+Cron Kurma
    ```bash
    /bin/bash -c 'export HOME=/home/kullanici; export PATH=/usr/local/cpanel/3rdparty/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH; D=/home/kullanici/app.<alanadi>.com; L=/home/kullanici/deploy.log; rm -f $D/deploy-tani.txt; cd $D || { echo "$(date) CD BASARISIZ" >> $L; exit 1; }; o=$(git rev-parse HEAD); e=$(git pull --ff-only origin main 2>&1); c=$?; n=$(git rev-parse HEAD); if [ $c -ne 0 ]; then echo "$(date) HATA: $e" >> $L; elif [ "$o" != "$n" ]; then echo "$(date) GUNCELLENDI ${o:0:7} -> ${n:0:7}" >> $L; fi'
    ```
 
    Komutun yaptığı iş: `HOME` ve `PATH` değişkenlerini cPanel ortamına göre kurar → tanı dosyası `deploy-tani.txt`'yi siler → proje dizinine geçer (başarısızsa `CD BASARISIZ` yazar ve çıkar) → `git pull --ff-only origin main` çeker; hata olursa `HATA: <çıktı>`, commit değişmişse `GUNCELLENDI <eski> -> <yeni>` (7 karakterlik kısa hash'ler) yazar, değişiklik yoksa sessiz kalır.
 
-## 4) Repo Klonlama ve Remote Güncelleme
 
-```bash
-git clone https://<kullanici>:[MASKED - GitHub PAT]@github.com/<kullanici>/<repo>.git
-
-git remote set-url origin <yeni-adres>
-```
 
 ## 5) Sunucu Ortamı Gerçekleri (<sunucu> — app.<alanadi>.com)
 
@@ -250,16 +231,3 @@ selectorctl --list-user-extensions --version=8.4 --all
 ```
 
 Aktif (`+`) eklentiler: `bcmath`, `dom`, `fileinfo`, `gd`, `igbinary`, `ioncube_loader`, `mbstring`, `msgpack`, `mysqlnd`, `nd_mysqli`, `opcache`, `pdo`, `pdo_mysql`, `phar`, `posix`, `redis`, `xmlreader`, `xmlwriter`, `xsl`, `zip`. Dikkat çekici nokta: klasik `mysqli` devre dışıyken onun yerel sürücüsü `mysqlnd` ve CloudLinux `nd_mysqli` varyantı aktiftir.
-
-**Dizin yapısı** (`/home/kullanici/app.<alanadi>.com`):
-
-```text
-api      composer.json  data            deploy_webhook.php  error_log  js         logs     sayfa    uploads
-api.php  config.php     deploy_kur.php  destek              index.php  login.php  php.ini  sidebar
-```
-
-Öne çıkan girdiler: `deploy_webhook.php` ve `deploy_kur.php` bu uygulamanın deploy dosyalarıdır (yukarıdaki 3. bölümdeki mekanizmanın karşılığı); `js/` dizini yerel belge üretim kütüphanelerini barındırır (bkz. `php-yapi-konvansiyonu.md` §5).
-
-## 6) Güvenlik Notu
-
-Kaynak belgede `git remote set-url` komutunun içinde **şifrelenmemiş (plaintext) bir GitHub Personal Access Token** vardı; bu belgeye aktarım sırasında **[MASKED]** yapıldı. Düz metin olarak not dosyasında saklanan token risklidir: GitHub, herkese açık bir depoya sızdığında otomatik olarak iptal eder, ancak özel depolarda geçerliliğini koruyabilir. Kaynak dosyadaki token kötüye kullanım ihtimaline karşı **GitHub > Settings > Developer Settings > Personal access tokens** üzerinden iptal edilip yenisi üretilmeli (doğrulanmalı).
