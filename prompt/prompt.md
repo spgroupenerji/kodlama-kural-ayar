@@ -1,5 +1,109 @@
 Promptlar
 
+> Kaynak: kullanıcı notu (2026-10-23) — hedef mimari, Motion yeniden tasarımı ve CDN araç kataloğu.
+
+## Hedef Mimari — Vite + React SPA + LiteSpeed PHP REST API
+
+Çalışma zamanında Node.js servis bağımlılığı yaratmayan hibrit model: Vite ile derlenen React tek sayfa uygulaması (SPA, istemci taraflı yönlendirme) + LiteSpeed üzerinde çalışan PHP REST API. React ve API aynı alan adında (`dijital.<alanadi>`) barınacağı için CORS yapılandırması gerekmez; mevcut veritabanı ve `deploy/` dağıtım mekanizması korunur. Vite yalnızca derleme aşamasında Node.js gerektirir; üretimde sunucuya yalnızca statik `dist/` çıktısı gider ve sunucuda Node çalışmaz.
+
+- **Kapsam önceliği:** Bu bölüm, aşağıdaki "yalnızca CDN" kısıtının yerini alır. Esas proje Vite + React SPA olarak derlenir; CDN kataloğu HTML tabanlı prototip ve yan projeler için geçerlidir. React SPA'da kütüphaneler npm ile kurulur.
+- **Yönlendirme:** LiteSpeed'de `/api/*` PHP'ye, diğer tüm yollar `index.html`'e yönlendirilir (SPA fallback); derin bağlantılar 404 vermez.
+- **Güvenlik:** Aynı alan adı CORS'u ortadan kaldırır; CSRF, oturum doğrulama ve girdi doğrulama aynı şekilde zorunludur.
+- **Tasarım:** Sayfalar Motion (eski adıyla Framer Motion; React'te `motion/react`) ile yeniden tasarlanacak. Yazılım firması kimliğine uygun olarak her sayfa tipografi, boşluk, hareket eğrisi, responsive kırılım, erişilebilirlik (WCAG) ve performans bütçesi açısından özenle kurgulanacaktır.
+
+## CDN Araç Kataloğu — HTML Projeleri
+
+Aşağıdaki liste, HTML projelerinde doğrudan CDN üzerinden `<script>`, `<script type="module">` veya `<link>` ile çağrılabilen popüler ve kapsamlı araç havuzudur. Katalog bir seçim havuzudur; her proje yalnızca ihtiyaç duyduğu araçları yükler. Üretimde sürümler sabitlenir ve CDN yolları uygulama anında doğrulanır. Bu proje için zorunlu alt küme, aşağıdaki "CDN Kütüphaneleri" bölümünde ayrıca tanımlanmıştır.
+
+**Çatı ve UI altyapısı**
+- React + ReactDOM — bileşen tabanlı SPA (ESM/esm.sh; React 19 UMD yayınlamaz)
+- Vue 3 — progresif çatı (`<script>` global build)
+- Alpine.js — hafif reaktif DOM (`<script defer>`)
+- htmx — HTML üzerinden AJAX etkileşimi (`<script>`)
+- Preact — hafif React alternatifi (`<script type="module">`)
+- jQuery — eski tarayıcı/eklenti uyumu (`<script>`)
+- Bootstrap 5 — grid, bileşen, modal (CSS + `<script>` bundle)
+- Tailwind CSS Play CDN — hızlı prototip (yalnızca geliştirme; üretimde derlenmiş CSS)
+- DaisyUI — Tailwind bileşen katmanı (CSS)
+- Bulma — bağımsız CSS çatısı (CSS)
+
+**Hareket ve animasyon**
+- Motion (Framer Motion) — React/JS animasyon, layout, gesture (ESM: `https://cdn.jsdelivr.net/npm/motion@latest/react/+esm`)
+- GSAP + ScrollTrigger — timeline, scrub, pin (UMD; ScrollTrigger ayrı dosya)
+- Lenis — ataletli kaydırma (UMD/ESM)
+- Anime.js — hafif timeline animasyonu (UMD)
+- AOS — kaydırma ile belirme (UMD + CSS)
+- ScrollReveal — görünürlük animasyonu (UMD)
+- SplitType — metni harf/kelime bölme (UMD)
+- Typed.js — daktilo efekti (UMD)
+- AutoAnimate — otomatik liste/geçiş animasyonu (ESM)
+- Matter.js — 2B fizik (UMD)
+- Lottie Web — After Effects/JSON animasyon (UMD)
+- Rive — etkileşimli vektör animasyon (UMD canvas)
+
+**3B ve veri görselleştirme**
+- Three.js — WebGL sahne (ESM + import map; yeni sürümlerde UMD yok)
+- Babylon.js — tam kapsamlı 3B motor (UMD)
+- PixiJS — hızlı 2B WebGL render (UMD)
+- p5.js — yaratıcı kodlama (UMD)
+- D3.js — veri odaklı SVG (UMD)
+- Chart.js — hafif grafik (UMD)
+- ApexCharts — dashboard grafikleri (UMD)
+- ECharts — büyük veri görselleştirme (UMD)
+- Plotly.js — bilimsel grafik (UMD)
+- model-viewer — 3B model önizleme (ESM)
+
+**Kaydırma, galeri ve medya**
+- Swiper — carousel/slider (UMD + CSS)
+- Splide — erişilebilir slider (UMD)
+- Embla Carousel — hafif carousel (ESM)
+- PhotoSwipe — galeri/lightbox (ESM)
+- GLightbox — hafif lightbox (UMD)
+- Fancybox — galeri/modal (UMD + CSS)
+- Plyr — video/ses oynatıcı (UMD + CSS)
+- hls.js — HLS akış (UMD)
+- Howler.js — ses yönetimi (UMD)
+- Tone.js — Web Audio (UMD)
+
+**Form, etkileşim ve geri bildirim**
+- Tippy.js — tooltip/popover (UMD + CSS)
+- Floating UI — konumlandırma (UMD)
+- SweetAlert2 — modal/onay (UMD)
+- Toastify JS — bildirim (UMD + CSS)
+- SortableJS — sürükle-bırak sıralama (UMD)
+- Choices.js — seçim/etiketleme (UMD + CSS)
+- Tom Select — gelişmiş select (UMD + CSS)
+- Flatpickr — tarih/saat seçici (UMD + CSS)
+- IMask — maskeli girdi (UMD)
+- Dropzone — dosya yükleme (UMD + CSS)
+
+**İkon, tipografi ve stil**
+- Remix Icon — ikon fontu (CSS)
+- Font Awesome — ikon seti (CSS)
+- Bootstrap Icons — ikon fontu (CSS)
+- Lucide — SVG ikon seti (UMD)
+- Google Fonts — font servisi (CSS link)
+- Animate.css — hazır CSS animasyonları (CSS)
+- Normalize.css — tarayıcı normalizasyonu (CSS)
+
+**Veri ve yardımcı araçlar**
+- Axios — HTTP istemcisi (UMD)
+- Day.js — tarih/saat (UMD)
+- Lodash — koleksiyon/yardımcı (UMD)
+- UUID — kimlik üretimi (UMD)
+- Marked — Markdown ayrıştırma (UMD)
+- DOMPurify — HTML temizleme/XSS koruması (UMD)
+- Highlight.js — kod vurgulama (UMD + CSS)
+- PapaParse — CSV ayrıştırma (UMD)
+- JSZip — ZIP oluşturma/okuma (UMD)
+- qrcode — QR üretimi (UMD)
+- html2canvas — DOM'u görüntüye çevirme (UMD)
+- jsPDF — PDF üretimi (UMD)
+- PDF.js — PDF görüntüleme (ESM)
+- SheetJS — Excel okuma/yazma (resmî CDN)
+- Monaco Editor — kod editörü (AMD loader)
+- CodeMirror 5 — hafif kod editörü (UMD + CSS)
+
 ```text
 Bağlamı gereksiz şişirmeden, odak kaybı olmadan, kararlılığı ve verimliliği olabilecek en üst noktada tutmak için yapılması gerekeni yap.
 Bu görev için uygun olan skill, MCP ve plugin araçlarını en etkin şekilde kullan.
