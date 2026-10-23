@@ -1,0 +1,15 @@
+{
+    "chat.mcp.gallery.enabled": true,
+    "workbench.sideBar.location": "right",
+    "workbench.activityBar.location": "top",
+    "workbench.auxiliaryActivityBar.location": "top",
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Monokai",
+    "extensions.ignoreRecommendations": true,
+    "search.useIgnoreFiles": false,
+    "permissions": {
+        "allow": [
+            "mcp(*)"
+        ]
+    }
+}
