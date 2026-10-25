@@ -1,3 +1,5 @@
+# Ajan Araçları Kataloğu
+
 ## 1. Metodoloji ve Disiplin
 
 - https://github.com/obra/superpowers - Ajanın hemen koda girmesini engelleyip beyin fırtınası, şartname, planlama ve TDD adımlarını uygulatan metodoloji çerçevesi.
@@ -64,18 +66,3 @@ Kod ile video üretme hattı üç katmandan oluşur: **render motoru** (Remotion
 ### 5.3 Ek Video Araçları
 
 - https://github.com/calesthio/OpenMontage - Remotion, Piper TTS ve FFmpeg'i orkestre ederek kodlama ajanını otonom video stüdyosuna dönüştürür.
-- https://github.com/OpenCut-app/OpenCut - Açık kaynak video düzenleyici.
-
-## 6. Editör ve CLI Dokümantasyonu
-
-- https://antigravity.google/docs/home/
-- https://opencode.ai/docs/tr/
-- https://zcode.z.ai/en/docs/welcome
-- https://docs.cline.bot/cline-overview
-- https://github.com/deepseek-ai/deepseek-harness
-
-## 7. Genel Kaynaklar
-
-- https://github.com/public-apis/public-apis - API listesi.
-- https://github.com/sindresorhus/awesome - yazılım, teknoloji ve çeşitli ilgi alanlarına dair en kaliteli kaynakların listesi.
-- https://github.com/eyaprak/skills - YouTube videolarında gösterilen Claude Code skill'lerinin toplandığı depo; `seo-expert` skill'i buradan indirildi.
