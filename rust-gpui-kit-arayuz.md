@@ -167,13 +167,15 @@ Paketleme (dmg / AppImage / deb) ayrı bir konudur: <https://gpui-kit.com/docs/p
 
 ## Hazır Uygulama (tek prompt)
 
-`release/` klasörüne kurulum gerektirmeyen tek dosyalık beta sürüm üreten derleme hattını bir kod ajanına kurduracak tek parça istem (`app-pdf_beta` adını kendi paket adınızla değiştirin):
+`release/` klasörüne kurulum gerektirmeyen tek dosyalık beta sürüm üreten derleme hattını bir kod ajanına kurduracak tek parça istem (uygulama adı `APP_AD` değişkeniyle verilir; örnek değer `app-pdf`):
 
 ```text
 Bu Rust + GPUI Kit projesinde `release/` klasörüne kurulum gerektirmeyen tek dosyalık beta sürüm üreten derleme betiği kur.
 
+Uygulama adı değişkeni: `APP_AD` (örnek: `app-pdf`); artefakt adında bu değişken kullanılsın.
+
 1. Damga: her derlemede yerel saatle `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika) biçiminde tek bir damga üret; aynı damga hem artefakt adında hem uygulamanın Hakkında penceresindeki sürüm bilgisinde görünsün, iki ayrı yerde ayrı damga üretme.
-2. Artefakt: `release/app-pdf_beta-<damga>` + platform eki (Windows `.exe`, macOS/Linux eki yok). Derleme `cargo build --release --locked`; çıktı bu ada kopyalanır, kurulum paketi üretilmez.
+2. Artefakt: `release/${APP_AD}_beta-<damga>` + platform eki (Windows `.exe`, macOS/Linux eki yok). Derleme `cargo build --release --locked`; çıktı bu ada kopyalanır, kurulum paketi üretilmez.
 3. Temizlik: `release/` içinde yalnızca en güncel artefakt kalsın; yeni dosya önce geçici ada kopyalanıp sonra taşınsın (atomik), eski sürümler sonra silinsin.
 4. `.gitignore`: `release/` ve `target/` hariç tutulsun.
 5. İlk derleme PDF C çekirdeğini (MuPDF) sıfırdan derlediği için uzun sürer; betik bunu tek satır bilgi olarak yazsın, sonraki derlemeler artımlıdır.
