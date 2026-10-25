@@ -26,6 +26,12 @@ git remote set-url origin 'https://<kullanici>:[MASKED - GitHub PAT]@github.com/
 git push -u origin main
 ```
 
+---
+
+$u = Read-Host "Tokenli GitHub Linkini Yapistirin"; git init; git config --global user.name "spgroupenerji"; git config --global user.email "spgroup.enerji@gmail.com"; git add .; git commit -m "cPanel"; git branch -M main; git remote remove origin 2>$null; git remote add origin $u.Trim("'"" "); git push -u origin main
+
+---
+
 ## 2) GitHub Şifre İstediğinde (Personal Access Token)
 
 `git push` komutunu girdiğinizde sizden Username ve Password isteyecektir.
