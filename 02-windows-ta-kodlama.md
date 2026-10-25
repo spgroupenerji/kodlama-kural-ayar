@@ -32,3 +32,13 @@ $k=[Microsoft.Win32.Registry]::LocalMachine.OpenSubKey("SYSTEM\CurrentControlSet
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 ```
+
+## 3. Chrome For Testing
+
+Sabit sürüm indirme sayfası: https://googlechromelabs.github.io/chrome-for-testing/#stable
+
+`chrome-win64` paketini `C:\(Uygulama)` klasörüne açtıktan sonra uzak hata ayıklama portuyla başlatma:
+
+```powershell
+& "C:\(Uygulama)\chrome-win64\chrome.exe" --remote-debugging-port=9222
+```
