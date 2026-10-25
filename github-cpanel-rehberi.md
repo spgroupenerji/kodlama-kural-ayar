@@ -1,16 +1,18 @@
 # GitHub + cPanel Kurulum ve Deploy Rehberi
 
-İlk Yükleme
+## 1) İlk Yükleme
 
+Manuel adımlar:
+
+```bash
 # 1. Git deposunu başlatın
 git init
 
 # 2. GitHub adresinizi origin olarak tanımlayın
-git remote add origin https://github.com/<kullanici>/......git
+git remote add origin https://github.com/<kullanici>/repoadi.git
 
-# 3. Tüm dosyaları Git takibine ekleyin
+# 3. Tüm dosyaları Git takibine ekleyin ve kimliği tanımlayın
 git add .
-
 git config --global user.name 'spgroupenerji'
 git config --global user.email 'spgroup.enerji@gmail.com'
 
@@ -22,17 +24,33 @@ git commit -m 'cPanel'
 git branch -M main
 
 # 6. Dosyaları boş repoya gönderin
-git remote set-url origin 'https://<kullanici>:[MASKED - GitHub PAT]@github.com/<kullanici>/repoadi.git'
+git remote set-url origin 'https://<kullanici>:<TOKEN>@github.com/<kullanici>/repoadi.git'
 git push -u origin main
 ```
 
----
+### Tek komut (tokenli linki yapıştır)
 
+```powershell
 $u = Read-Host "Tokenli GitHub Linkini Yapistirin"; git init; git config --global user.name "spgroupenerji"; git config --global user.email "spgroup.enerji@gmail.com"; git add .; git commit -m "cPanel"; git branch -M main; git remote remove origin 2>$null; git remote add origin $u.Trim("'"" "); git push -u origin main
+```
 
----
+## 2) Değişiklikten Sonra — Tek Komut: Commit + Push
 
-## 2) GitHub Şifre İstediğinde (Personal Access Token)
+```powershell
+git add -A; git commit -m "guncelleme: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"; git push origin main
+```
+
+Tarih damgalı mesaj otomatiktir; kendi mesajınız için `-m "..."` kısmını değiştirin. Farklı dal kullanıyorsanız `main` yerine dal adını yazın. Değişiklik yoksa commit hata verir, komut yine de push'a devam eder (zararsız).
+
+## 3) Güncel Sürümü Çekme — Tek Komut: Pull
+
+```powershell
+git pull --ff-only origin main
+```
+
+Yerel değişiklik varsa önce 2. bölümdeki commit+push'u çalıştırın; dallar ayrışmışsa `git pull --rebase origin main` kullanın.
+
+## 4) GitHub Şifre İstediğinde (Personal Access Token)
 
 `git push` komutunu girdiğinizde sizden Username ve Password isteyecektir.
 
@@ -41,7 +59,7 @@ Nasıl alınır? GitHub'da:
 
 İzinlerden **Contents: read & write** ile aktif edin.
 
-## 3) Deploy Webhook Kurulumu
+## 5) Deploy Webhook Kurulumu
 
 1. **Webhook kodunu canlıya bir kez indirin** (kod canlıda olmadan GitHub onu çağıramaz): oturum açıp `deploy.php` → **Canlıyı Güncelle** ya da terminalde:
 
@@ -85,7 +103,7 @@ Cron Kurma
 
 
 
-## 5) Sunucu Ortamı Gerçekleri (<sunucu> — app.<alanadi>.com)
+## 6) Sunucu Ortamı Gerçekleri (<sunucu> — app.<alanadi>.com)
 
 > Kaynak: SSH oturum dökümü (2026-10-23). PHP sürümü: 8.4.
 

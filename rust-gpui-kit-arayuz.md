@@ -165,6 +165,24 @@ jobs:
 
 Paketleme (dmg / AppImage / deb) ayrı bir konudur: <https://gpui-kit.com/docs/packaging>
 
+## Hazır Uygulama (tek prompt)
+
+`release/` klasörüne kurulum gerektirmeyen tek dosyalık beta sürüm üreten derleme hattını bir kod ajanına kurduracak tek parça istem (`app-pdf_beta` adını kendi paket adınızla değiştirin):
+
+```text
+Bu Rust + GPUI Kit projesinde `release/` klasörüne kurulum gerektirmeyen tek dosyalık beta sürüm üreten derleme betiği kur.
+
+1. Damga: her derlemede yerel saatle `vYYYYMMDDHHMM` (yıl-ay-gün-saat-dakika) biçiminde tek bir damga üret; aynı damga hem artefakt adında hem uygulamanın Hakkında penceresindeki sürüm bilgisinde görünsün, iki ayrı yerde ayrı damga üretme.
+2. Artefakt: `release/app-pdf_beta-<damga>` + platform eki (Windows `.exe`, macOS/Linux eki yok). Derleme `cargo build --release --locked`; çıktı bu ada kopyalanır, kurulum paketi üretilmez.
+3. Temizlik: `release/` içinde yalnızca en güncel artefakt kalsın; yeni dosya önce geçici ada kopyalanıp sonra taşınsın (atomik), eski sürümler sonra silinsin.
+4. `.gitignore`: `release/` ve `target/` hariç tutulsun.
+5. İlk derleme PDF C çekirdeğini (MuPDF) sıfırdan derlediği için uzun sürer; betik bunu tek satır bilgi olarak yazsın, sonraki derlemeler artımlıdır.
+6. Hata: derleme veya kopyalama başarısız olursa betik sıfır dışı kodla çıksın ve `release/` içinde yarım dosya bırakmasın.
+7. Betiği hedefe göre üret: Windows için PowerShell, macOS/Linux için bash.
+
+Kabul testi: betiği art arda iki kez çalıştır ve (a) `release/` içinde tam olarak bir dosya olduğunu, (b) dosya adındaki damga ile Hakkında penceresindeki damganın aynı olduğunu, (c) ikinci çalıştırmada önceki dosyanın silindiğini, (d) betiğin çıkış kodunun 0 olduğunu doğrula.
+```
+
 ## Sınırlar (doğrulanmalı)
 
 - Ekran okuyucu (VoiceOver/Orca) ve IME davranışı AccessKit/gpui-pre katmanında mevcut; uçtan uca kullanıcı testi şart.
