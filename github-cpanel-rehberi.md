@@ -54,6 +54,16 @@ git_github_yukle(){ local u; printf 'Tokenli GitHub linkini yapıştırın: '; r
 | macOS ("Meko OS" macOS olarak yorumlandı — doğrulanmalı) | Önce bir kez `git config --global credential.helper osxkeychain` çalıştırın (token düz metne düşmez); sonra tek satırı yapıştırın. Git yoksa `xcode-select --install`. `/bin/bash` 3.2 ve varsayılan `zsh` ile uyumludur. |
 | cPanel | `cPanel » Home » Advanced » Terminal` veya SSH ile **cPanel kullanıcınızla** (root değil) bağlanın; proje köküne girin: `cd "$HOME/app.alanadi.com"`; sonra aynı tek satırı yapıştırın. Arayüzdeki *Git Version Control* clone alanı `kullanıcı:token` kabul etmez; private repo için SSH deploy key kullanın. |
 
+### Alternatif — kısa bash tek satırı
+
+Token'ı doğrudan `origin` adresine gömer; `git remote -v` çıktısında ve shell geçmişinde görünür. Paylaşılan sunucuda üstteki güvenli sürüm kullanılmalıdır. Blok **bash** içindir; zsh'de `read -p` istem yerine coprocess okumasıdır, bu yüzden zsh'de üstteki güvenli sürümü veya `bash -c` ile çalıştırmayı kullanın.
+
+```bash
+read -p "Tokenli GitHub Linkini Yapistirin: " u && u=$(echo "$u" | sed -e "s/^[[:space:]'\"]*//" -e "s/[[:space:]'\"]*$//") && git init && git config --global user.name "spgroupenerji" && git config --global user.email "spgroup.enerji@gmail.com" && git add . && git commit -m "cPanel" && git branch -M main && git remote remove origin 2>/dev/null; git remote add origin "$u" && git push -u origin main
+```
+
+**Ne yapar:** Linki okur, baştaki/sondaki boşluk ve tırnakları temizler, depoyu başlatıp ilk commit'i atar ve `main` dalına push eder.
+
 cPanel güvenlik notları:
 
 - Depo `public_html` içindeyse `.git` dizinini kapatın — `public_html/.htaccess` içine: `RedirectMatch 404 ^/\.git(/|$)`
