@@ -26,6 +26,9 @@
 - https://github.com/f/prompts.chat - Topluluktan prompt paylaşma ve toplama arşivi; kurum içinde kendi sunucunuzda barındırma seçeneği de var.
 - https://github.com/omergocmen/anything2explainer - Herhangi bir konuyu seslendirmeli, altyazılı ve bölüm çubuklu kara tuval animasyon anlatım videosuna çeviren Claude Code/Codex becerisi.
 - https://github.com/omergocmen/aislopmeter - Bir web sitesindeki jenerik yapay zekâ içeriğini puanlayıp adım adım düzelten MCP sunucusu ve CLI; Türkçe destekli.
+- https://github.com/kaankiziltug/logo-design-skill - Claude, Gemini CLI, Codex gibi ajanlara logo tasarım disiplini kazandıran beceri; 1.400'den fazla logo referansı, SVG üretimi ve test araçları içerir.
+- https://github.com/AminForou/mcp-gsc - Google Search Console verisini doğal dille sorgulamak için MCP sunucusu; Claude Desktop, Cursor, Codex CLI gibi istemcilerle çalışır.
+- https://github.com/Auriti-Labs/geo-optimizer-skill - Sitenizin ChatGPT, Perplexity, Gemini ve Google AI Overviews tarafından alıntılanıp alıntılanmadığını 0-100 puanlayan açık kaynak GEO/AEO denetim aracı; CLI, Python ve MCP.
 
 ## 4. Katalog ve Liste Kaynakları
 
