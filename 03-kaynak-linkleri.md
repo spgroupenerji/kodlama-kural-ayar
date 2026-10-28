@@ -16,3 +16,5 @@
 - https://github.com/public-apis/public-apis - API listesi.
 - https://github.com/sindresorhus/awesome - yazılım, teknoloji ve çeşitli ilgi alanlarına dair en kaliteli kaynakların listesi.
 - https://github.com/eyaprak/skills - YouTube videolarında gösterilen Claude Code skill'lerinin toplandığı depo; `seo-expert` skill'i buradan indirildi.
+- https://github.com/omergocmen/aislopmeter - Bir web sitesindeki yapay zekâ kaynaklı jenerik içeriği (AI slop) ölçen; metin, şablon tasarım ve yarım kalmış detayları puanlayıp Claude, Cursor gibi araçlar için adım adım düzeltme veren MCP sunucusu ve CLI.
+- https://github.com/omergocmen/anything2explainer - Herhangi bir konuyu seslendirmeli (TTS), altyazılı ve bölüm ilerleme çubuklu kara tuval animasyon anlatım videosuna çeviren Claude Code / Codex skill'i; kareler Remotion ile kod üzerinden çiziliyor.
