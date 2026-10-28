@@ -29,6 +29,9 @@
 - https://github.com/kaankiziltug/logo-design-skill - Claude, Gemini CLI, Codex gibi ajanlara logo tasarım disiplini kazandıran beceri; 1.400'den fazla logo referansı, SVG üretimi ve test araçları içerir.
 - https://github.com/AminForou/mcp-gsc - Google Search Console verisini doğal dille sorgulamak için MCP sunucusu; Claude Desktop, Cursor, Codex CLI gibi istemcilerle çalışır.
 - https://github.com/Auriti-Labs/geo-optimizer-skill - Sitenizin ChatGPT, Perplexity, Gemini ve Google AI Overviews tarafından alıntılanıp alıntılanmadığını 0-100 puanlayan açık kaynak GEO/AEO denetim aracı; CLI, Python ve MCP.
+- https://github.com/multica-ai/andrej-karpathy-skills - Karpathy'nin LLM kodlama tuzakları gözlemlerinden türetilmiş tek `CLAUDE.md` dosyası; Claude Code davranışını düzeltir.
+- https://github.com/Mahanaicoach/google-maps-scraper-kit - Yerel Docker'da çalışan ücretsiz Google Maps kazıyıcı; telefon, e-posta, web sitesi ve sosyal hesapları CSV'ye aktarır, Claude Code becerisi içerir.
+- https://github.com/blader/humanizer - Yapay zekâ yazımının izlerini silen ajan becerisi; Wikipedia'nın "AI yazımı belirtileri" rehberine dayanır, anlamı değiştirmez.
 
 ## 4. Katalog ve Liste Kaynakları
 
@@ -44,3 +47,9 @@
 - https://whatships.com/ - X'te paylaşılan 2.000'den fazla startup lansman videosunu orijinal gönderilere bağlayarak listeleyen dizin.
 - https://github.com/usestrix/strix - Açık kaynak yapay zekâ sızma testi aracı; uygulamanın açıklarını bulup düzeltmeye yardım eder.
 - https://mcp.orphex.co/?utm_source=orphex.co&utm_medium=referral - Dijital pazarlama bütçe ve teklif yönetimini Claude, ChatGPT ve Copilot üzerinden otomatikleştiren MCP servisi.
+
+## 6. Ön Yüz, Tasarım ve Performans Araçları
+
+- https://lenis.dev/ - Hafif ve performanslı yumuşak kaydırma kütüphanesi; JavaScript, React ve Vue ile yatay kaydırma, sonsuz kaydırma ve scroll snapping destekler.
+- https://spline.design/ - Tarayıcıda çalışan ücretsiz 3B tasarım aracı; ekip ve ajanlar aynı sahnede modelleme, animasyon ve etkileşimli 3B çıktı üretir.
+- https://pagespeed.web.dev/ - Google PageSpeed Insights: sayfa hızı ve Core Web Vitals ölçümü; laboratuvar ve gerçek kullanıcı verisini birlikte verir.
