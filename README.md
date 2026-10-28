@@ -10,7 +10,7 @@ Buradan bilgi almak isteyenler için herhangi bir yasak ya da kısıtlama yok; i
 
 - `anayasa/` — proje tipine göre bağlayıcı kurallar: `web-site/`, `web-uygulama/`, `rust-masaustu/`; her set mimari, veri tabanı ve görsel dizayn dosyasından oluşur.
 - `prompt/` — hazır prompt blokları, CDN araç kataloğu ve analitik çalışma sistemi promptu.
-- `04-platform-mimari-kurallari.md` — LLM ajanları, oyun motorları ve sesli asistanlar için platform bazlı mimari kurallar.
+- `04-skill-mimarisi-kurallari.md` — üretim seviyesinde Skill mimarisi: niyet algılama, şema/protokol, orkestrasyon, durum/bellek, güvenlik, dayanıklılık, gözlemlenebilirlik ve platform kuralları.
 - `skills/` — ajan oturumlarında kullandığım beceriler (`10k-websites`, `seo-expert`).
 - `betikler/`, `winget/` — Windows kurulum ve bakım için `.bat` dosyaları.
 - `araclar/` — yardımcı Node betikleri (ör. sayfa ekran görüntüsü).
