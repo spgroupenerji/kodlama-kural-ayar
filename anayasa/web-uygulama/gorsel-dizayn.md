@@ -79,12 +79,12 @@
 
 ## 8. GÖRSEL TESLİM VE KOD KURALI
 
-8.1.1. Stiller yalnız derlenmiş `assets/css/app.css` üzerinden gelmek zorundadır; derleme disiplini mimari anayasanın konusudur ve `app.css` elle düzenlenemez.
+8.1.1. Stiller yalnız CDN'deki Tailwind tarayıcı motoru (`@tailwindcss/browser@4.3.3`) ve `text/tailwindcss` bloğundaki `@theme` tokenlarından gelir; derleme adımı yoktur, depoda CSS dosyası tutulmaz.
 8.1.2. Satır içi `style` yasaktır; istisna yalnız JavaScript'in hesapladığı dinamik koordinat ve ölçülerdir.
 8.1.3. Elle yazılmış ikinci stil dosyası ve ham CSS sınıfı yasaktır; stil `@theme` tokenları ve Tailwind utility sınıflarıyla tanımlanır.
 8.1.4. JavaScript ile üretilen DOM'da görsel özellik sınıf atamasıyla verilir; `innerHTML` ile stil enjekte edilemez.
-8.1.5. Görsel varlıklar kendi alan adımızdan sabit sürümle servis edilir; harici varlık CDN'i yasaktır.
-8.1.6. Sayfa şablonlarında serbest `<style>` bloğu yasaktır; dinamik hesaplama gerektiren SVG çizimi bu kuraldan muaftır.
+8.1.5. Görsel varlıklar kendi alan adımızdan sabit sürümle servis edilir; Tailwind tarayıcı motoru dışında harici varlık CDN'i yasaktır.
+8.1.6. Sayfa şablonlarında serbest `<style>` bloğu yasaktır; yalnız `type="text/tailwindcss"` bloğu ve dinamik hesaplama gerektiren SVG çizimi bu kuraldan muaftır.
 8.1.7. Sunucu taraflı PDF ve e-posta çıktı şablonları satır içi stil kuralından muaftır; bu istisna yalnız çıktı üreten şablon dosyalarını kapsar.
 8.1.8. Leaflet, Chart.js ve Three.js gibi tuval tabanlı kütüphanelerin zorunlu varlıkları ve render işlemleri satır içi stil kuralından muaftır.
 
@@ -92,8 +92,8 @@
 
 - [ ] `grep -R 'style=' --include='*.php' --include='*.html' .` yalnız dinamik koordinat/ölçü satırlarını döner.
 - [ ] `grep -R -E '(bg|text|border)-\[#|text-\[[0-9]|(p|px|py|gap)-\[[0-9]' --include='*.php' --include='*.html' .` hiçbir eşleşme üretmez.
-- [ ] `grep -R -E 'cdn\.|fonts\.google|iconify' --include='*.php' --include='*.html' --include='*.css' .` hiçbir eşleşme üretmez.
-- [ ] `grep -R 'prefers-reduced-motion' assets/css/kaynak.css` eşleşir ve `assets/css/app.css` derlemesinde yer alır.
+- [ ] `grep -R -E 'cdn\.|fonts\.google|iconify' --include='*.php' --include='*.html' --include='*.css' .` yalnız Tailwind'in sabitlenmiş jsDelivr satırını döner.
+- [ ] `grep -R -E 'motion-reduce:|prefers-reduced-motion' --include='*.php' --include='*.html' .` en az bir eşleşme döner; DevTools reduced-motion emülasyonunda hareket durur.
 - [ ] `grep -R '<symbol' assets/` en az bir eşleşme döner; ikon sprite'ı tek kaynaktan gelir.
 - [ ] `grep -R 'aria-current' sidebar/` aktif menü işaretini doğrular; `grep -c 'aria-current' sidebar/` değeri 1'dir.
 - [ ] Üç farklı modül sayfasının HTML çıktısında sidebar, üst çubuk ve `<main>` aynı sırayla bulunur.
@@ -105,7 +105,7 @@
 
 ## Kaynaklar
 
-1. Tailwind CSS standalone CLI — https://tailwindcss.com/docs/installation/tailwind-cli
+1. Tailwind CSS tarayıcı sürümü (`@tailwindcss/browser`) — https://www.npmjs.com/package/@tailwindcss/browser
 2. Lucide SVG sprite — https://lucide.dev/guide/static/svg-sprite
 3. WCAG 2.2 (W3C Recommendation, 12 Aralık 2024) — https://www.w3.org/TR/WCAG22/
 4. Çekirdek Web Vitals eşikleri — https://web.dev/articles/vitals

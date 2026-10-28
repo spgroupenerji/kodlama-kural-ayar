@@ -11,7 +11,7 @@
 - Preact — hafif React alternatifi (`<script type="module">`)
 - jQuery — eski tarayıcı/eklenti uyumu (`<script>`)
 - Bootstrap 5 — grid, bileşen, modal (CSS + `<script>` bundle)
-- Tailwind CSS Play CDN — hızlı prototip (yalnızca geliştirme; üretimde derlenmiş CSS)
+- Tailwind CSS tarayıcı sürümü (`@tailwindcss/browser@4.3.3`) — CDN'den çalışır, derleme adımı yoktur; tema `@theme` bloğuyla verilir (tam sürüm + SRI sabitlenir)
 - DaisyUI — Tailwind bileşen katmanı (CSS)
 - Bulma — bağımsız CSS çatısı (CSS)
 

@@ -28,7 +28,7 @@ Yığın (tek seçim, gerekçeli):
 - Hareket: Lenis + GSAP/ScrollTrigger + SplitType (maskeli başlık stagger).
 - 3B: Three.js — hero'da fareye duyarlı dijital çekirdek/küre veya cyber grid; WebGL yoksa CSS gradient/görsel fallback.
 - Ortam: tsParticles — yalnızca alt bölümlerde, düşük yoğunlukta.
-- Stil ve ikon: Tailwind Play CDN + Remix Icon.
+- Stil ve ikon: Tailwind tarayıcı CDN'i (`@tailwindcss/browser`, tam sürüm + SRI; derleme adımı yok) + Remix Icon.
 - Grafik: Chart.js, koyu tema ve neon çizgiler; tek grafik kütüphanesi kullanılır.
 - Slider: Swiper — coverflow veya 3B kayan kartlar.
 - Hero terminal: Typed.js.

@@ -57,23 +57,23 @@
 4.2.5. Denetim kaydı fail-closed çalışır; yalnız açıkça adı geçen okuma eylemleri loglanmaz.
 4.3.1. Yükleme; boyut, MIME türü ve dosya imzası doğrulanmadan kabul edilmez ve istemci dosya adına güvenilmez.
 4.3.2. `uploads/` dizini sürüm dışıdır, script çalıştırmaya kapalıdır ve yalnız doğrulanmış dosya olarak sunulur.
-4.3.3. CSP `default-src 'self'`, `script-src 'self'`, `style-src 'self'`, `object-src 'none'` ve `frame-ancestors 'none'` ile yayınlanır; `unsafe-inline` ve `unsafe-eval` yasaktır.
+4.3.3. CSP `default-src 'self'`, `script-src 'self' https://cdn.jsdelivr.net`, `style-src 'self' 'unsafe-inline'`, `object-src 'none'` ve `frame-ancestors 'none'` ile yayınlanır; `script-src` içinde `unsafe-inline` ve `unsafe-eval` yasaktır, `'unsafe-inline'` yalnız stil katmanında Tailwind tarayıcı motorunun ürettiği stil için açıktır.
 4.3.4. HSTS `includeSubDomains` ve sabit `max-age` ile yayınlanır; `X-Content-Type-Options: nosniff` ve `Referrer-Policy` başlıkları eksiksiz olmak zorundadır.
 
 ## 5. ÖN YÜZ TESLİMİ
 
 5.1.1. Sayfalar sunucuda render edilmiş HTML olarak teslim edilir; SPA framework, istemci tarafı yönlendirici ve sanal DOM katmanı yasaktır.
-5.1.2. Tailwind CSS 4.3.3, Node.js gerektirmeyen platforma uygun standalone ikiliyle (Windows: `tailwindcss-windows-x64.exe`) `-i assets/css/kaynak.css -o assets/css/app.css --minify` komutuyla derlenmek zorundadır.
-5.1.3. Derlenmiş `assets/css/app.css` depoda izlenir ve sürümle birlikte dağıtılır; `dist/` gibi sürüm dışı bırakılan veya yalnız üretimde üretilen çıktı yasaktır.
-5.1.4. Çalışma zamanında Tailwind tarayıcı motoru, CDN bağlantısı ve `assets/css/app.css` dışında stil kaynağı yasaktır.
-5.1.5. `assets/css/kaynak.css` yalnız `@theme` bloklarıyla token tanımlar; token dışı ham değer ve elle yazılmış ikinci CSS dosyası yasaktır.
+5.1.2. Tailwind CSS 4.3.3 tarayıcı sürümü (`@tailwindcss/browser@4.3.3`) jsDelivr'den tam sürüm sabit URL, `integrity` (SRI) ve `crossorigin="anonymous"` ile yüklenir: `https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js`. Derleme adımı, PostCSS ve standalone ikili yoktur; sınıflar tarayıcıda CDN motoru tarafından üretilir.
+5.1.3. Depoda CSS dosyası tutulmaz; tema yalnız sayfa şablonundaki `<style type="text/tailwindcss">` bloğunda `@theme` tokenlarıyla tanımlanır.
+5.1.4. Çalışma zamanında stil kaynağı yalnız bu CDN paketi ve `text/tailwindcss` bloklarıdır; yerel CSS dosyası, ikinci stil dosyası ve başka CDN bağlantısı yasaktır.
+5.1.5. `@theme` bloğu yalnız token tanımlar; token dışı ham değer, utility dışı serbest CSS ve elle yazılmış ikinci CSS dosyası yasaktır.
 5.2.1. htmx 2.0.11 yalnız gerekli kısmi etkileşimde (liste yenileme, satır içi form, modal içerik) kullanılır; tam sayfa gezinme normal bağlantıyla yapılır.
 5.2.2. htmx kendi sunucumuzdan servis edilir, sürümü sabittir ve script etiketi `integrity` (SRI) özniteliği olmadan yayınlanamaz.
 5.2.3. htmx isteklerinin CSRF başlığı `htmx:configRequest` olayıyla `app.js` sözleşmesinden eklenir; modül içinde ayrı başlık kopyası yasaktır.
 5.2.4. htmx ile gelen kısmi yanıt sunucuda üretilir ve yalnız hedef bölgeyi değiştirir; istemci tarafı şablon motoru yasaktır.
 5.3.1. `js/app.js` `<head>` sonunda `defer` ile yüklenir; `apiIstek`, `bildirimGoster` ve `htmlTemizle` sözleşmesi dışına çıkan modül içi fetch veya kaçış üretimi yasaktır.
 5.3.2. Yakalanmamış hata ve söz redleri tek bildirim kanalına bağlanır; sessiz yutma yasaktır.
-5.3.3. İstemci JavaScript toplamı gzip 60 KB'yi, derlenmiş CSS toplamı gzip 30 KB'yi aşarsa dağıtım reddedilir.
+5.3.3. Yerel istemci JavaScript toplamı gzip 61440 baytı aşamaz; CDN'den gelen Tailwind motoru gzip 73853 bayttır ve toplam istemci varlığı 143360 bayt bütçesine girer, aşımda dağıtım reddedilir.
 5.4.1. İkonlar Lucide 1.61.0 inline SVG sprite üzerinden verilir; çalışma zamanı Iconify API, ikon fontu ve ikinci ikon seti yasaktır.
 5.4.2. Yazı tipi sistem yığınıdır; harici font CDN'i ve gömülü web font yasaktır, taban gövde 13/14 px'tir.
 5.4.3. Ön yüz teslimi WCAG 2.2 AA hedefini korumak zorundadır; erişilebilirlik ölçümü olmadan ön yüz değişikliği dağıtıma çıkamaz.
@@ -99,7 +99,7 @@
 7.1.1. Sunucu yanıt süresi (TTFB) p95'te 500 ms'yi aşamaz.
 7.1.2. API yanıt süresi p95'te 300 ms'yi aşamaz.
 7.1.3. LCP p75'te 2,5 saniyeyi aşamaz (çekirdek Web Vitals eşiği).
-7.1.4. Derlenmiş CSS gzip toplamı 30 KB, JavaScript gzip toplamı 60 KB sınırını aşamaz.
+7.1.4. Yerel JavaScript gzip toplamı 61440 baytı, toplam istemci varlığı (yerel JS + Tailwind motoru) 143360 baytı aşamaz.
 7.2.1. Bütçe ölçümü her sürümde kayda geçirilir; eşik aşımı kök neden giderilmeden kapatılamaz ve aşım sürümü dağıtılmaz.
 7.2.2. Ölçüm aracı ve komutu proje `docs/` klasöründe tanımlıdır; tanımsız araçla yapılan ölçüm kabul edilmez.
 
@@ -119,9 +119,9 @@
 - [ ] `php -r 'echo PHP_VERSION;'` çıktısı `8.4.27`; değişen tüm PHP dosyaları `php -l` ile hatasız.
 - [ ] `php -i | grep -E 'session.use_strict_mode|session.cookie_samesite|session.cookie_httponly'` zorunlu değerleri gösterir.
 - [ ] `curl -sI https://<alan>/login` yanıtı `Strict-Transport-Security`, `Content-Security-Policy` ve `X-Content-Type-Options: nosniff` başlıklarını taşır.
-- [ ] `tailwindcss-windows-x64.exe -i assets/css/kaynak.css -o assets/css/app.css --minify` hatasız; `gzip -c assets/css/app.css | wc -c` ≤ 30720.
-- [ ] `gzip -c js/app.js | wc -c` ≤ 61440 ve `git ls-files assets/css/app.css` çıktısı boş değil.
-- [ ] `grep -R '@latest\|cdn\.\|iconify' --include='*.php' --include='*.html' --include='*.css' --include='*.js' .` hiçbir eşleşme üretmez.
+- [ ] Tailwind CDN dosyasının SRI değeri doğrulanır: `curl -sL https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js | openssl dgst -sha384 -binary | openssl base64 -A` çıktısı `2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB`; şablondaki `integrity` özniteliği aynı hash'tir.
+- [ ] `gzip -c js/app.js | wc -c` ≤ 61440, toplamı 73853 bayt Tailwind motoruyla 143360 baytı aşmaz ve `git ls-files 'assets/css/*'` çıktısı boştur.
+- [ ] `grep -R '@latest\|cdn\.\|iconify' --include='*.php' --include='*.html' --include='*.css' --include='*.js' .` yalnız Tailwind'in sabitlenmiş jsDelivr satırını döner.
 - [ ] htmx script etiketi `integrity=` özniteliği içerir ve dosya kendi alan adımızdan gelir.
 - [ ] `curl` ile ardışık giriş isteği testinde eşik aşımı 429 döner ve denetim kaydı aynı isteği listeler.
 - [ ] TTFB p95 ≤ 500 ms, API p95 ≤ 300 ms ve LCP p75 ≤ 2,5 s ölçüm kaydı mevcuttur.
@@ -132,8 +132,8 @@
 
 1. PHP 8.4 sürüm verisi — https://www.php.net/releases/index.php?json&version=8.4
 2. PHP oturum yapılandırması — https://www.php.net/manual/en/session.configuration.php
-3. Tailwind CSS standalone CLI — https://tailwindcss.com/docs/installation/tailwind-cli
-4. Tailwind standalone derleme komutu — https://tailwindcss.com/blog/standalone-cli
+3. Tailwind CSS tarayıcı sürümü (`@tailwindcss/browser`) — https://www.npmjs.com/package/@tailwindcss/browser
+4. Tailwind Play CDN kurulumu — https://tailwindcss.com/docs/installation/play-cdn
 5. htmx olayları (`htmx:configRequest`) — https://htmx.org/events/
 6. Python asyncio görev ve thread köprüleri — https://docs.python.org/3/library/asyncio-task.html
 

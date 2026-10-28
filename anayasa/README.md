@@ -40,7 +40,7 @@ Aşağıdaki hükümler üç sette de bağlayıcıdır; alan anayasaları bunlar
 | --- | --- | --- | --- |
 | PHP | 8.4.27 (hedef; 8.5.12 mevcut) | site, uygulama | endoflife.date/php; `sunucu-karsilastirmasi.md` |
 | MySQL / MariaDB | MySQL 8.4.13 LTS veya MariaDB 10.11+ (mevcut MySQL 8.0.45, EOL 2026-04-30) | site, uygulama | endoflife.date/mysql; cPanel ortam bilgisi |
-| Tailwind CSS | 4.3.3 (standalone CLI, derlenmiş CSS) | uygulama | npm registry; v4.3.3 release ikilileri |
+| Tailwind CSS | 4.3.3 (tarayıcı CDN, derleme yok) | uygulama | npm registry `@tailwindcss/browser@4.3.3`; jsDelivr SHA-384 SRI doğrulandı |
 | htmx | 2.0.11 | uygulama | npm registry |
 | Lucide | 1.61.0 | site, uygulama | npm registry (latest, deprecated değil) |
 | Python | 3.14 (asgari 3.14.10) | uygulama servis katmanı | endoflife.date/python |
