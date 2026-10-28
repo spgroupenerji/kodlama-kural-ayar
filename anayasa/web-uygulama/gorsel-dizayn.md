@@ -2,7 +2,7 @@
 
 > Kapsam: Oturumlu panel uygulamalarının kalıcı kabuk yerleşimi, tipografi, boşluk, renk, ikon ve bileşen davranışı standartlarını kapsar.
 > Öncelik: `AGENTS.md` > bu anayasa > proje içi belgeler
-> Doğrulama: 2026-10-27 · context7 + resmî belgeler (bkz. Kaynaklar)
+> Doğrulama: 2026-10-28 · Context7 + resmî Iconify belgeleri (bkz. Kaynaklar)
 
 ## 1. KAPSAM VE DEĞİŞMEZLER
 
@@ -47,12 +47,16 @@
 
 ## 5. İKONLAR
 
-5.1.1. Tek ikon kaynağı Lucide 1.61.0 inline SVG sprite'tır; ikinci ikon seti yasaktır.
-5.1.2. Çalışma zamanı Iconify API, ikon fontu ve base64 SVG gömme yasaktır.
-5.1.3. İkon boyutu metin ölçeğiyle aynı adımdan seçilir; keyfi piksel boyutu yasaktır.
-5.1.4. Dekoratif ikon `aria-hidden="true"` taşır; anlam taşıyan ikon erişilebilir adla eşleştirilir.
-5.1.5. Yalnız ikon içeren buton erişilebilir ad taşımak zorundadır; adsız ikon butonu yayınlanamaz.
-5.1.6. Kodla üretilen dinamik vektörel grafikler (akış şeması, topoloji) ikon kuralından muaftır.
+5.1.1. Tek yetkili ikon sağlayıcı: Iconify Web Component (`<iconify-icon>`) altyapısıdır; başka ikon sağlayıcısı kullanılamaz.
+5.1.2. Proje genelinde görsel tutarlılık için tek ikon seti öneki kullanılır: `lucide:`. Farklı ikon setlerinin aynı projede kontrolsüzce harmanlanması yasaktır.
+5.1.3. Yükleyici 3.0.4 sürümüne sabitlenir ve `https://code.iconify.design/iconify-icon/3.0.4/iconify-icon.min.js` adresinden `integrity` (SRI) ile `crossorigin="anonymous"` taşıyarak yüklenir.
+5.1.4. İkonlar istemci çalışma anında doğrudan resmî Iconify API'sinden (`https://api.iconify.design`) çekilir ve tarayıcı yerel önbelleğinde saklanır; ilk yüklemedeki ağ gecikmesi kabul edilir.
+5.1.5. Yerel SVG dosyası barındırmak, ikon fontu yüklemek, SVG sprite kurmak veya stillere base64 SVG gömmek yasaktır.
+5.1.6. Kodla üretilen dinamik vektörel grafikler (pvsGrafik, akış şeması, topoloji, matematiksel algoritma çıktısı) ikon kısıtlamasından muaftır.
+5.1.7. Arayüzde hiçbir bağlamda emoji karakteri kullanılamaz; her emoji anlamına en uygun `lucide:` ikonu ile değiştirilir; ikonun işlenemediği metin bağlamlarında (form seçenekleri, onay iletileri) emoji tamamen kaldırılır.
+5.1.8. İkon boyutu metin ölçeğiyle aynı adımdan seçilir; keyfi piksel boyutu yasaktır.
+5.1.9. Dekoratif ikon `aria-hidden="true"` taşır; anlam taşıyan ikon erişilebilir adla eşleştirilir.
+5.1.10. Yalnız ikon içeren buton erişilebilir ad taşımak zorundadır; adsız ikon butonu yayınlanamaz.
 
 ## 6. BİLEŞEN DAVRANIŞLARI
 
@@ -83,18 +87,20 @@
 8.1.2. Satır içi `style` yasaktır; istisna yalnız JavaScript'in hesapladığı dinamik koordinat ve ölçülerdir.
 8.1.3. Elle yazılmış ikinci stil dosyası ve ham CSS sınıfı yasaktır; stil `@theme` tokenları ve Tailwind utility sınıflarıyla tanımlanır.
 8.1.4. JavaScript ile üretilen DOM'da görsel özellik sınıf atamasıyla verilir; `innerHTML` ile stil enjekte edilemez.
-8.1.5. Görsel varlıklar kendi alan adımızdan sabit sürümle servis edilir; Tailwind tarayıcı motoru dışında harici varlık CDN'i yasaktır.
+8.1.5. Görsel varlıklar kendi alan adımızdan sabit sürümle servis edilir; Tailwind tarayıcı motoru ve 3.0.4 sürümlü Iconify yükleyicisi dışında harici varlık CDN'i yasaktır.
 8.1.6. Sayfa şablonlarında serbest `<style>` bloğu yasaktır; yalnız `type="text/tailwindcss"` bloğu ve dinamik hesaplama gerektiren SVG çizimi bu kuraldan muaftır.
 8.1.7. Sunucu taraflı PDF ve e-posta çıktı şablonları satır içi stil kuralından muaftır; bu istisna yalnız çıktı üreten şablon dosyalarını kapsar.
 8.1.8. Leaflet, Chart.js ve Three.js gibi tuval tabanlı kütüphanelerin zorunlu varlıkları ve render işlemleri satır içi stil kuralından muaftır.
+8.2.1. Tailwind CSS sözdizimi ve Iconify Web Component tanımları başta olmak üzere, mimaride kullanılan tüm yöntem ve sürümler Context7 üzerinden doğrulanmadan kullanılamaz; doğrulama kaynağı ve tarihi belge başlığına yazılır.
 
 ## Kabul kapısı
 
 - [ ] `grep -R 'style=' --include='*.php' --include='*.html' .` yalnız dinamik koordinat/ölçü satırlarını döner.
 - [ ] `grep -R -E '(bg|text|border)-\[#|text-\[[0-9]|(p|px|py|gap)-\[[0-9]' --include='*.php' --include='*.html' .` hiçbir eşleşme üretmez.
-- [ ] `grep -R -E 'cdn\.|fonts\.google|iconify' --include='*.php' --include='*.html' --include='*.css' .` yalnız Tailwind'in sabitlenmiş jsDelivr satırını döner.
+- [ ] `grep -R -E 'script src=' --include='*.php' --include='*.html' .` yalnız Tailwind CDN, kendi alan adımızdan htmx ve 3.0.4 sürümlü Iconify yükleyicisini döner; başka harici betik yoktur.
+- [ ] `grep -R "<iconify-icon" --include='*.php' --include='*.html' .` en az bir eşleşme döner; ikonlar yalnız `lucide:` önekiyle Iconify Web Component üzerinden basılır.
+- [ ] `grep -R -E "font-awesome|bootstrap-icons|<symbol|base64,|data:image/svg" --include='*.php' --include='*.html' .` boştur; `grep -R -P "[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]" --include='*.php' --include='*.html' .` emoji döndürmez.
 - [ ] `grep -R -E 'motion-reduce:|prefers-reduced-motion' --include='*.php' --include='*.html' .` en az bir eşleşme döner; DevTools reduced-motion emülasyonunda hareket durur.
-- [ ] `grep -R '<symbol' assets/` en az bir eşleşme döner; ikon sprite'ı tek kaynaktan gelir.
 - [ ] `grep -R 'aria-current' sidebar/` aktif menü işaretini doğrular; `grep -c 'aria-current' sidebar/` değeri 1'dir.
 - [ ] Üç farklı modül sayfasının HTML çıktısında sidebar, üst çubuk ve `<main>` aynı sırayla bulunur.
 - [ ] Chrome DevTools mobil görünümde 320 px genişlikte yatay gövde kaydırması yoktur.
@@ -106,9 +112,11 @@
 ## Kaynaklar
 
 1. Tailwind CSS tarayıcı sürümü (`@tailwindcss/browser`) — https://www.npmjs.com/package/@tailwindcss/browser
-2. Lucide SVG sprite — https://lucide.dev/guide/static/svg-sprite
-3. WCAG 2.2 (W3C Recommendation, 12 Aralık 2024) — https://www.w3.org/TR/WCAG22/
-4. Çekirdek Web Vitals eşikleri — https://web.dev/articles/vitals
-5. `prefers-reduced-motion` — https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+2. Iconify Web Component — https://iconify.design/docs/iconify-icon/
+3. Resmî Iconify API ve önbellek başlıkları — https://iconify.design/docs/api/
+4. `iconify-icon@3.0.4` (gzip 8 190 bayt, SRI) — https://registry.npmjs.org/iconify-icon/3.0.4
+5. WCAG 2.2 (W3C Recommendation, 12 Aralık 2024) — https://www.w3.org/TR/WCAG22/
+6. Çekirdek Web Vitals eşikleri — https://web.dev/articles/vitals
+7. `prefers-reduced-motion` — https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 
-Erişim: 2026-10-27
+Erişim: 2026-10-28

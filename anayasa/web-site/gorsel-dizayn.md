@@ -2,7 +2,7 @@
 
 > Kapsam: Herkese açık tanıtım sitesinin sayfa kompozisyonu, tasarım token'ları, tipografi, renk, ikon, hareket ve performans bütçesi.
 > Öncelik: `AGENTS.md` > bu anayasa > proje içi belgeler
-> Doğrulama: 2026-10-27 · context7 + resmî belgeler (bkz. Kaynaklar)
+> Doğrulama: 2026-10-28 · Context7 + resmî Iconify belgeleri (bkz. Kaynaklar)
 
 ## 1. TASARIM ÖZGÜRLÜĞÜ VE MARKA ÇEKİRDEĞİ
 
@@ -44,9 +44,13 @@
 
 ## 6. İKONLAR
 
-6.1.1. Tek ikon seti Lucide'dır ve sürüm 1.61.0 olarak sabitlenir; farklı ikon seti, ikon fontu veya karışık set yasaktır.
-6.2.1. İkonlar satır içi SVG olarak tek kaynaktan üretilir; CDN, ikon fontu ve base64 SVG gömme yasaktır.
-6.3.1. İkon boyutu 24×24 piksel ve çizgi kalınlığı 2 piksel varsayılanıyla kullanılır; sapma token ile gerekçelendirilmelidir.
+6.1.1. Tek yetkili ikon sağlayıcı: Iconify Web Component (`<iconify-icon>`) altyapısıdır; başka ikon sağlayıcısı kullanılamaz.
+6.1.2. Proje genelinde görsel tutarlılık için tek ikon seti öneki kullanılır: `lucide:`. Farklı ikon setlerinin aynı projede kontrolsüzce harmanlanması yasaktır.
+6.1.3. Yükleyici 3.0.4 sürümüne sabitlenir ve `https://code.iconify.design/iconify-icon/3.0.4/iconify-icon.min.js` adresinden `integrity` (SRI) ile `crossorigin="anonymous"` taşıyarak yüklenir.
+6.2.1. İkonlar istemci çalışma anında doğrudan resmî Iconify API'sinden (`https://api.iconify.design`) çekilir ve tarayıcı yerel önbelleğinde saklanır; API yanıtları `immutable` önbellekle döner.
+6.2.2. Yerel SVG dosyası barındırmak, ikon fontu yüklemek, SVG sprite kurmak veya stillere base64 SVG gömmek yasaktır; ilk yüklemedeki ağ gecikmesi kabul edilir.
+6.2.3. Kod tarafından anlık üretilen dinamik vektörel grafikler (pvsGrafik, akış şemaları, matematiksel algoritma çıktıları) ikon kısıtlamasından muaftır.
+6.3.1. Arayüzde hiçbir bağlamda emoji karakteri kullanılamaz; her emoji anlamına en uygun `lucide:` ikonu ile değiştirilir; ikonun işlenemediği metin bağlamlarında (form seçenekleri, onay iletileri) emoji tamamen kaldırılır.
 6.4.1. Anlam taşıyan her ikon erişilebilir ada sahip olmak zorundadır; süsleme ikonları ise `aria-hidden="true"` taşımak zorundadır.
 
 ## 7. BİLEŞEN, ODAK VE ERİŞİLEBİLİRLİK
@@ -71,12 +75,18 @@
 9.3.1. LCP görseli her sayfa için tasarım aşamasında belirlenir, `fetchpriority="high"` ve `preload` ile işaretlenir ve ilk görünümde `lazy` olamaz.
 9.4.1. Görsel bütçesi aşıldığında dekoratif görsel kaldırılır; LCP görseli küçültme yerine kompozisyon sadeleştirilir.
 
+## 10. DOĞRULAMA ZORUNLULUĞU
+
+10.1.1. Başta Iconify Web Component bileşen tanımları olmak üzere, mimaride kullanılan tüm yöntem ve sürümler Context7 üzerinden doğrulanmadan kullanılamaz; doğrulama kaynağı ve tarihi belge başlığına yazılır.
+
 ## Kabul kapısı
 
 - [ ] `grep -RE "#[0-9a-fA-F]{3,8}" assets/css/site.css` yalnız `:root` token tanımlarında eşleşir.
 - [ ] `grep -RE 'style="[^"]*(display|margin|padding)' .` boştur; statik satır içi stil yoktur.
 - [ ] `grep -R "@media (prefers-reduced-motion" assets/css/site.css` eşleşme verir ve DevTools emülasyonunda video ile paralaks durur.
-- [ ] `grep -R "font-awesome|iconify|bootstrap-icons" .` boştur ve tüm ikonlar Lucide satır içi SVG'dir.
+- [ ] `grep -R "<iconify-icon" --include='*.php' --include='*.html' .` en az bir eşleşme döner; tüm ikonlar Iconify Web Component ile basılır.
+- [ ] `grep -R -E "font-awesome|bootstrap-icons|<symbol|base64,|data:image/svg" --include='*.php' --include='*.html' .` boştur; yerel SVG, sprite, ikon fontu ve base64 gömme yoktur (dinamik grafik muafiyeti hariç).
+- [ ] `grep -R "icon=\"" --include='*.php' --include='*.html' . | grep -v "lucide:"` boştur ve `grep -R -P "[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]" --include='*.php' --include='*.html' .` emoji döndürmez.
 - [ ] CSS'teki tüm `px` boşluk değerleri 4'ün katıdır ve dikey dolgular simetriktir.
 - [ ] axe veya Lighthouse erişilebilirlik denetiminde kritik ihlal yoktur; kontrast 4.5:1 ve 3:1 ölçümü doğrulanmıştır.
 - [ ] Klavye ile tüm etkileşimler tamamlanır, odak görünürdür ve hedef boyut ≥ 24×24 CSS pikseldir.
@@ -87,9 +97,10 @@
 
 1. https://www.w3.org/TR/WCAG22/ — kontrast, hedef boyut, odak, metin aralığı ve hareket başarı ölçütleri.
 2. https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion — hareket azaltma tercihi.
-3. https://lucide.dev/ — Lucide ikon seti, 24 px boyut ve 2 px çizgi varsayılanı.
-4. https://registry.npmjs.org/lucide/1.61.0 — sabitlenen Lucide sürümü (npm latest, deprecated değil).
-5. https://web.dev/articles/vitals — LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1 (p75) eşikleri.
-6. https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html — 24×24 CSS piksel hedef boyutu.
+3. https://iconify.design/docs/iconify-icon/ — Iconify Web Component kurulumu, `icon` niteliği ve boyutlandırma.
+4. https://iconify.design/docs/api/ — resmî Iconify API; `Cache-Control: public, max-age=604800, immutable` (2026-10-28 doğrulandı).
+5. https://registry.npmjs.org/iconify-icon/3.0.4 — sabitlenen yükleyici sürümü (gzip 8 190 bayt, SHA-384 SRI hesaplandı).
+6. https://web.dev/articles/vitals — LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1 (p75) eşikleri.
+7. https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html — 24×24 CSS piksel hedef boyutu.
 
-Erişim: 2026-10-27
+Erişim: 2026-10-28

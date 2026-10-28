@@ -2,7 +2,7 @@
 
 > Kapsam: Oturumlu panel uygulamalarının PHP çalışma zamanı, istek yaşam döngüsü, ön yüz teslimi, servis katmanı, güvenlik kapıları ve dağıtım disiplinini kapsar.
 > Öncelik: `AGENTS.md` > bu anayasa > proje içi belgeler
-> Doğrulama: 2026-10-27 · context7 + resmî belgeler (bkz. Kaynaklar)
+> Doğrulama: 2026-10-28 · Context7 + resmî Iconify belgeleri (bkz. Kaynaklar)
 
 ## 1. KAPSAM VE ÖNCELİK
 
@@ -11,7 +11,7 @@
 1.1.3. Proje içi belgeler (`docs/YAPI.md` dâhil) bu anayasanın altındadır; çelişen proje belgesi düzeltilmeden dağıtım yapılamaz.
 1.1.4. Her hüküm denetlenebilir kanıt üretmek zorundadır; kanıtsız uygunluk beyanı kabul edilmez.
 1.2.1. Üretim çalışma zamanı PHP 8.4.27 veya üzeridir; 8.4 dalının altına inilemez ve barındırıcı destekliyorsa 8.5.x kullanılır.
-1.2.2. PHP, MySQL, Tailwind CSS, htmx, Lucide ve Python sürümleri sabittir; `@latest` veya dinamik sürüm etiketi ve doğrulanmamış API üretime giremez.
+1.2.2. PHP, MySQL, Tailwind CSS, htmx, Iconify Web Component (`<iconify-icon>`) ve Python sürümleri sabittir; `@latest` veya dinamik sürüm etiketi ve doğrulanmamış API üretime giremez.
 1.2.3. Sunucu sürüm farkı ve uzantı envanteri `docs/ortam_envanteri.sh` çıktısıyla kayda geçirilmeden dağıtım yapılamaz.
 
 ## 2. SUNUCU VE YAPILANDIRMA
@@ -57,7 +57,7 @@
 4.2.5. Denetim kaydı fail-closed çalışır; yalnız açıkça adı geçen okuma eylemleri loglanmaz.
 4.3.1. Yükleme; boyut, MIME türü ve dosya imzası doğrulanmadan kabul edilmez ve istemci dosya adına güvenilmez.
 4.3.2. `uploads/` dizini sürüm dışıdır, script çalıştırmaya kapalıdır ve yalnız doğrulanmış dosya olarak sunulur.
-4.3.3. CSP `default-src 'self'`, `script-src 'self' https://cdn.jsdelivr.net`, `style-src 'self' 'unsafe-inline'`, `object-src 'none'` ve `frame-ancestors 'none'` ile yayınlanır; `script-src` içinde `unsafe-inline` ve `unsafe-eval` yasaktır, `'unsafe-inline'` yalnız stil katmanında Tailwind tarayıcı motorunun ürettiği stil için açıktır.
+4.3.3. CSP `default-src 'self'`, `script-src 'self' https://cdn.jsdelivr.net https://code.iconify.design`, `style-src 'self' 'unsafe-inline'`, `connect-src 'self' https://api.iconify.design`, `object-src 'none'` ve `frame-ancestors 'none'` ile yayınlanır; `script-src` içinde `unsafe-inline` ve `unsafe-eval` yasaktır, `'unsafe-inline'` yalnız stil katmanında Tailwind tarayıcı motorunun ürettiği stil için açıktır.
 4.3.4. HSTS `includeSubDomains` ve sabit `max-age` ile yayınlanır; `X-Content-Type-Options: nosniff` ve `Referrer-Policy` başlıkları eksiksiz olmak zorundadır.
 
 ## 5. ÖN YÜZ TESLİMİ
@@ -65,7 +65,7 @@
 5.1.1. Sayfalar sunucuda render edilmiş HTML olarak teslim edilir; SPA framework, istemci tarafı yönlendirici ve sanal DOM katmanı yasaktır.
 5.1.2. Tailwind CSS 4.3.3 tarayıcı sürümü (`@tailwindcss/browser@4.3.3`) jsDelivr'den tam sürüm sabit URL, `integrity` (SRI) ve `crossorigin="anonymous"` ile yüklenir: `https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js`. Derleme adımı, PostCSS ve standalone ikili yoktur; sınıflar tarayıcıda CDN motoru tarafından üretilir.
 5.1.3. Depoda CSS dosyası tutulmaz; tema yalnız sayfa şablonundaki `<style type="text/tailwindcss">` bloğunda `@theme` tokenlarıyla tanımlanır.
-5.1.4. Çalışma zamanında stil kaynağı yalnız bu CDN paketi ve `text/tailwindcss` bloklarıdır; yerel CSS dosyası, ikinci stil dosyası ve başka CDN bağlantısı yasaktır.
+5.1.4. Çalışma zamanında stil kaynağı yalnız bu CDN paketi ve `text/tailwindcss` bloklarıdır; yerel CSS dosyası, ikinci stil dosyası ve başka stil CDN bağlantısı yasaktır.
 5.1.5. `@theme` bloğu yalnız token tanımlar; token dışı ham değer, utility dışı serbest CSS ve elle yazılmış ikinci CSS dosyası yasaktır.
 5.2.1. htmx 2.0.11 yalnız gerekli kısmi etkileşimde (liste yenileme, satır içi form, modal içerik) kullanılır; tam sayfa gezinme normal bağlantıyla yapılır.
 5.2.2. htmx kendi sunucumuzdan servis edilir, sürümü sabittir ve script etiketi `integrity` (SRI) özniteliği olmadan yayınlanamaz.
@@ -73,8 +73,8 @@
 5.2.4. htmx ile gelen kısmi yanıt sunucuda üretilir ve yalnız hedef bölgeyi değiştirir; istemci tarafı şablon motoru yasaktır.
 5.3.1. `js/app.js` `<head>` sonunda `defer` ile yüklenir; `apiIstek`, `bildirimGoster` ve `htmlTemizle` sözleşmesi dışına çıkan modül içi fetch veya kaçış üretimi yasaktır.
 5.3.2. Yakalanmamış hata ve söz redleri tek bildirim kanalına bağlanır; sessiz yutma yasaktır.
-5.3.3. Yerel istemci JavaScript toplamı gzip 61440 baytı aşamaz; CDN'den gelen Tailwind motoru gzip 73853 bayttır ve toplam istemci varlığı 143360 bayt bütçesine girer, aşımda dağıtım reddedilir.
-5.4.1. İkonlar Lucide 1.61.0 inline SVG sprite üzerinden verilir; çalışma zamanı Iconify API, ikon fontu ve ikinci ikon seti yasaktır.
+5.3.3. Yerel istemci JavaScript toplamı gzip 61440 baytı aşamaz; CDN'den gelen Tailwind motoru gzip 73853 bayt, Iconify yükleyicisi (3.0.4) gzip 8190 bayttır ve toplam istemci varlığı 151550 bayt bütçesine girer, aşımda dağıtım reddedilir.
+5.4.1. İkonlar Iconify Web Component (`<iconify-icon>`) ile verilir; tek ikon seti öneki `lucide:` olur, yükleyici 3.0.4 sürümüne sabitlenir ve `integrity` (SRI) ile `code.iconify.design` üzerinden yüklenir. İkonlar çalışma anında resmî Iconify API'sinden (`api.iconify.design`) çekilir ve tarayıcı önbelleğinde saklanır; yerel SVG, sprite, ikon fontu, base64 SVG ve ikinci ikon seti yasaktır.
 5.4.2. Yazı tipi sistem yığınıdır; harici font CDN'i ve gömülü web font yasaktır, taban gövde 13/14 px'tir.
 5.4.3. Ön yüz teslimi WCAG 2.2 AA hedefini korumak zorundadır; erişilebilirlik ölçümü olmadan ön yüz değişikliği dağıtıma çıkamaz.
 
@@ -99,7 +99,7 @@
 7.1.1. Sunucu yanıt süresi (TTFB) p95'te 500 ms'yi aşamaz.
 7.1.2. API yanıt süresi p95'te 300 ms'yi aşamaz.
 7.1.3. LCP p75'te 2,5 saniyeyi aşamaz (çekirdek Web Vitals eşiği).
-7.1.4. Yerel JavaScript gzip toplamı 61440 baytı, toplam istemci varlığı (yerel JS + Tailwind motoru) 143360 baytı aşamaz.
+7.1.4. Yerel JavaScript gzip toplamı 61440 baytı, toplam istemci varlığı (yerel JS + Tailwind motoru + Iconify yükleyicisi) 151550 baytı aşamaz.
 7.2.1. Bütçe ölçümü her sürümde kayda geçirilir; eşik aşımı kök neden giderilmeden kapatılamaz ve aşım sürümü dağıtılmaz.
 7.2.2. Ölçüm aracı ve komutu proje `docs/` klasöründe tanımlıdır; tanımsız araçla yapılan ölçüm kabul edilmez.
 
@@ -120,8 +120,10 @@
 - [ ] `php -i | grep -E 'session.use_strict_mode|session.cookie_samesite|session.cookie_httponly'` zorunlu değerleri gösterir.
 - [ ] `curl -sI https://<alan>/login` yanıtı `Strict-Transport-Security`, `Content-Security-Policy` ve `X-Content-Type-Options: nosniff` başlıklarını taşır.
 - [ ] Tailwind CDN dosyasının SRI değeri doğrulanır: `curl -sL https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3/dist/index.global.js | openssl dgst -sha384 -binary | openssl base64 -A` çıktısı `2ql948lIdLcGEE0/qxNiudyTjgauA3RDJERu5xW75kFCvSl5a9odyQYCb6tEjnmB`; şablondaki `integrity` özniteliği aynı hash'tir.
-- [ ] `gzip -c js/app.js | wc -c` ≤ 61440, toplamı 73853 bayt Tailwind motoruyla 143360 baytı aşmaz ve `git ls-files 'assets/css/*'` çıktısı boştur.
-- [ ] `grep -R '@latest\|cdn\.\|iconify' --include='*.php' --include='*.html' --include='*.css' --include='*.js' .` yalnız Tailwind'in sabitlenmiş jsDelivr satırını döner.
+- [ ] `gzip -c js/app.js | wc -c` ≤ 61440; 73853 bayt Tailwind motoru ve 8190 bayt Iconify yükleyicisiyle toplam 151550 baytı aşmaz ve `git ls-files 'assets/css/*'` çıktısı boştur.
+- [ ] `grep -R '@latest\|cdn\.' --include='*.php' --include='*.html' --include='*.css' --include='*.js' .` yalnız Tailwind CDN'i ve 3.0.4 sürümlü Iconify yükleyicisini döner; başka harici kaynak yoktur.
+- [ ] `grep -R "<iconify-icon" --include='*.php' --include='*.html' .` en az bir eşleşme döner ve `grep -R -P "[\x{1F300}-\x{1FAFF}\x{2600}-\x{27BF}]" --include='*.php' --include='*.html' .` emoji döndürmez.
+- [ ] `curl -sI https://api.iconify.design/lucide/home.svg` yanıtı `Cache-Control: public, max-age=604800, immutable` içerir.
 - [ ] htmx script etiketi `integrity=` özniteliği içerir ve dosya kendi alan adımızdan gelir.
 - [ ] `curl` ile ardışık giriş isteği testinde eşik aşımı 429 döner ve denetim kaydı aynı isteği listeler.
 - [ ] TTFB p95 ≤ 500 ms, API p95 ≤ 300 ms ve LCP p75 ≤ 2,5 s ölçüm kaydı mevcuttur.
@@ -136,5 +138,8 @@
 4. Tailwind Play CDN kurulumu — https://tailwindcss.com/docs/installation/play-cdn
 5. htmx olayları (`htmx:configRequest`) — https://htmx.org/events/
 6. Python asyncio görev ve thread köprüleri — https://docs.python.org/3/library/asyncio-task.html
+7. Iconify Web Component — https://iconify.design/docs/iconify-icon/
+8. Resmî Iconify API ve önbellek başlıkları — https://iconify.design/docs/api/
+9. `iconify-icon@3.0.4` (gzip 8 190 bayt, SRI) — https://registry.npmjs.org/iconify-icon/3.0.4
 
-Erişim: 2026-10-27
+Erişim: 2026-10-28

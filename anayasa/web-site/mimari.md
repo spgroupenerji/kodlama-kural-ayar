@@ -2,7 +2,7 @@
 
 > Kapsam: Herkese açık, SEO ve satış odaklı tanıtım sitelerinin barındırma, kaynak, performans, SEO ve güvenlik mimarisi.
 > Öncelik: `AGENTS.md` > bu anayasa > proje içi belgeler
-> Doğrulama: 2026-10-27 · context7 + resmî belgeler (bkz. Kaynaklar)
+> Doğrulama: 2026-10-28 · Context7 + resmî Iconify belgeleri (bkz. Kaynaklar)
 
 ## 1. KAPSAM VE ÖNCELİK
 
@@ -30,8 +30,8 @@
 
 ## 4. JAVASCRIPT, FONT VE GÖRSEL BÜTÇESİ
 
-4.1.1. JavaScript vanilla ve `defer` ile yüklenir; sayfa başına toplam JavaScript 30 KB gzip sınırını aşamaz ve aşan sürüm kabul edilmez.
-4.2.1. React, Vue, Svelte, jQuery ve SPA yönlendirici gibi çerçeve veya kütüphaneler yasaktır; üçüncü taraf betik CDN'i açılamaz.
+4.1.1. JavaScript vanilla ve `defer` ile yüklenir; sayfa başına toplam JavaScript 30 KB gzip sınırını aşamaz ve aşan sürüm kabul edilmez. Iconify yükleyicisi (3.0.4, gzip 8 190 bayt) bu bütçeye dâhildir.
+4.2.1. React, Vue, Svelte, jQuery ve SPA yönlendirici gibi çerçeve veya kütüphaneler yasaktır; üçüncü taraf betik CDN'i açılamaz, tek istisna 3.0.4 sürümüne sabit ve SRI'li Iconify Web Component yükleyicisidir.
 4.3.1. Varsayılan tipografi sistem font yığınıdır; marka fontu zorunluysa yalnız self-host woff2 alt kümesi kullanılır ve en fazla 2 dosya yüklenir.
 4.4.1. Her font dosyası `preload` ve `font-display: swap` ile yüklenir; harici font CDN'i ve CSS `@import` yasaktır.
 4.5.1. Görseller AVIF veya WebP olarak sunulur ve desteklemeyen tarayıcı için `<picture>` içinde geri dönüş biçimi bulunur.
@@ -68,7 +68,7 @@
 
 ## 8. GÜVENLİK BAŞLIKLARI VE GİZLİLİK
 
-8.1.1. Tüm HTML yanıtları nonce veya hash tabanlı Content-Security-Policy başlığı taşır; `unsafe-inline` ve `unsafe-eval` yasaktır.
+8.1.1. Tüm HTML yanıtları nonce veya hash tabanlı Content-Security-Policy başlığı taşır: `default-src 'self'`, `script-src 'self' https://code.iconify.design`, `connect-src 'self' https://api.iconify.design`, `object-src 'none'`, `frame-ancestors 'none'`. `unsafe-inline` ve `unsafe-eval` yasaktır.
 8.2.1. HSTS, `X-Content-Type-Options: nosniff`, Referrer-Policy ve Permissions-Policy başlıkları her yanıtta zorunludur.
 8.3.1. HTTPS zorunludur ve HTTP isteği 301 ile HTTPS'e yönlendirilir; üretimde sunucu imza başlıkları kapatılır.
 8.4.1. Analitik yalnız çerezsiz veya açık rıza sonrası çalışan, kişisel veri toplamayan ölçüm aracıyla yapılır; üçüncü taraf reklam izleyicisi yasaktır.
@@ -86,6 +86,9 @@
 - [ ] `robots.txt` 200 döner ve sitemap adresini bildirir; `sitemap.xml` dağıtım sonrası 200 döner ve `git ls-files sitemap.xml` boştur.
 - [ ] Her sayfada tek `<h1>`, canonical, Open Graph/Twitter ve JSON-LD blokları bulunur; form ucu CSRF'siz isteği ve honeypot doldurulmuş gönderimi reddeder.
 - [ ] `git ls-files | grep -E "^\.env$|\.sql$|^sitemap\.xml$"` boştur ve WCAG 2.2 AA elle kontrol listesi tamamlanmıştır.
+- [ ] `grep -R "code.iconify.design/iconify-icon/3.0.4" .` eşleşir; script etiketi `integrity=` ve `crossorigin="anonymous"` taşır.
+- [ ] `curl -sI https://api.iconify.design/lucide/home.svg` yanıtı `Cache-Control: public, max-age=604800, immutable` içerir.
+- [ ] CSP başlığı `code.iconify.design` (script-src) ve `api.iconify.design` (connect-src) kaynaklarını taşır.
 
 ## Kaynaklar
 
@@ -95,5 +98,8 @@
 4. https://web.dev/articles/vitals — LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1 (p75) eşikleri.
 5. https://www.w3.org/TR/WCAG22/ — WCAG 2.2 AA başarı ölçütleri.
 6. https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html — HSTS, CSP, nosniff, Referrer-Policy ve Permissions-Policy başlıkları.
+7. https://iconify.design/docs/iconify-icon/ — Iconify Web Component kurulumu ve `icon` niteliği.
+8. https://iconify.design/docs/api/ — resmî Iconify API ve önbellek başlıkları.
+9. https://registry.npmjs.org/iconify-icon/3.0.4 — sabitlenen yükleyici sürümü.
 
-Erişim: 2026-10-27
+Erişim: 2026-10-28

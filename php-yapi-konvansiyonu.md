@@ -31,7 +31,7 @@
 ### 1.3 İstemci
 
 - Tailwind CSS v4 tarayıcı sürümü (`@tailwindcss/browser@4.3.3`) CDN'den SRI ile yüklenir; derleme adımı ve derlenmiş CSS dosyası yoktur, stil `text/tailwindcss` bloğundaki `@theme` tokenlarıyla verilir (bkz. `anayasa/web-uygulama/gorsel-dizayn.md`).
-- İkon politikası proje başına tek yoldur: Lucide inline SVG sprite; çalışma zamanı Iconify API'si ve ikon fontu eklenmez (bkz. `anayasa/web-uygulama/gorsel-dizayn.md`).
+- İkon politikası proje başına tek yoldur: Iconify Web Component (`<iconify-icon>`) ve `lucide:` öneki; ikonlar çalışma anında resmî Iconify API'sinden çekilir; ikon fontu, yerel SVG/sprite, base64 SVG ve emoji eklenmez (bkz. `anayasa/web-uygulama/gorsel-dizayn.md`).
 - Satır içi `style` yasaktır; istisna yalnız anayasal alanlardır (PDF/e-posta şablonları, giriş ekranı teması, `@page` kuralları).
 - `js/app.js` `<head>` sonunda `defer` ile yüklenir; sözleşme `window.*` üzerinden açılır (`apiIstek`, `bildirimGoster`, `htmlTemizle`); yakalanmamış hata ve söz redleri tek bildirim kanalına bağlanır.
 - `js/vendor/*` ve gömülü üçüncü parti kopyalar sabittir, dokunulmaz.

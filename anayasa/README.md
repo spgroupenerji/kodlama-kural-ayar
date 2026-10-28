@@ -1,8 +1,8 @@
 # ANAYASA DİZİNİ — Proje Tipine Göre Bağlayıcı Kurallar
 
-> Sürüm: 2026-10-27
+> Sürüm: 2026-10-28
 > Öncelik: `AGENTS.md` > ilgili alan anayasası > proje içi belgeler
-> Doğrulama: Sürüm ve API iddiaları context7 ve resmî belgelerle doğrulandı (bkz. §4).
+> Doğrulama: Sürüm ve API iddiaları Context7 ve resmî belgelerle doğrulandı (bkz. §4); Iconify bileşen tanımı ve yükleyici sürümü 2026-10-28'de yeniden doğrulandı.
 
 Bu dizin, kök dizindeki tekil `anayasa-*.md` metinlerinin üç proje tipine ayrılmış halidir. Her proje yalnız kendi setini kopyalar; setler arasında hüküm taşınmaz.
 
@@ -26,7 +26,7 @@ Aşağıdaki hükümler üç sette de bağlayıcıdır; alan anayasaları bunlar
 4. Tüm sürümler sabitlenir; `@latest` ve dinamik sürüm etiketi yasaktır; doğrulanmamış API üretime giremez.
 5. Erişilebilirlik hedefi WCAG 2.2 AA'dır; klavye ile tam kullanım ve görünür odak zorunludur.
 6. Boşluk baremi 4px'tir; durum renkleri başarı `emerald/green`, uyarı `amber/yellow`, hata `rose/red`, bilgi `sky/blue` ile eşlenir.
-7. İkon seti Lucide'dir; ikon fontu ve çalışma zamanı ikon API'si kullanılmaz.
+7. İkon seti Lucide'dir. Web setlerinde tek yetkili sağlayıcı Iconify Web Component (`<iconify-icon>`) ve tek ön ek `lucide:` olur; ikonlar çalışma anında resmî Iconify API'sinden çekilir, ikon fontu, yerel SVG/sprite ve emoji yasaktır. Rust masaüstü setinde ikon yalnız `gpui-kit-assets` kataloğundan gelir.
 8. `prefers-reduced-motion` desteği zorunludur; hareket, tercih kapalıyken devre dışı kalır.
 9. Ölçülebilir kabul kapısı bulunmayan anayasa tamamlanmış sayılmaz; her belge komut, araç veya ölçüm içeren bir kapıyla biter.
 
@@ -42,7 +42,7 @@ Aşağıdaki hükümler üç sette de bağlayıcıdır; alan anayasaları bunlar
 | MySQL / MariaDB | MySQL 8.4.13 LTS veya MariaDB 10.11+ (mevcut MySQL 8.0.45, EOL 2026-04-30) | site, uygulama | endoflife.date/mysql; cPanel ortam bilgisi |
 | Tailwind CSS | 4.3.3 (tarayıcı CDN, derleme yok) | uygulama | npm registry `@tailwindcss/browser@4.3.3`; jsDelivr SHA-384 SRI doğrulandı |
 | htmx | 2.0.11 | uygulama | npm registry |
-| Lucide | 1.61.0 | site, uygulama | npm registry (latest, deprecated değil) |
+| Iconify Web Component (`iconify-icon`) | 3.0.4 | site, uygulama | npm registry; code.iconify.design yükleyicisi (gzip 8 190 bayt, SRI) |
 | Python | 3.14 (asgari 3.14.10) | uygulama servis katmanı | endoflife.date/python |
 | gpui-kit / gpui-pre | 0.8.1 / 0.3.10 | Rust masaüstü | crates.io API; gpui-kit v0.8.1 release notu |
 | Rust | 1.92+ (asgari; kararlı 1.99.1) | Rust masaüstü | gpui-kit kurulum belgesi; endoflife.date/rust |
