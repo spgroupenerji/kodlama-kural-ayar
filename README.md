@@ -1,10 +1,10 @@
 # Kişisel Notlar — Kodlama, Sistem ve Referans Defteri
 
-> Bu depo bir ürün, kütüphane veya topluluk kaynağı değildir. Kendi hızlı erişimim için tuttuğum **kişisel bir not defteridir**; herkese açık olmasının nedeni başka cihazlardan notlarıma ulaşabilmemdir.
+> Bu depo bir ürün veya topluluk kaynağı değil; kendi hızlı erişimim için tuttuğum **kişisel bir karalama defteri**. Herkese açık olmasının nedeni, notlarıma başka cihazlardan kolayca ulaşabilmem.
 
-Dosyalar farklı projelerde, farklı zamanlarda tutulmuş notların kopyala-yapıştır için bir araya getirilmiş hâlidir. Düzen, kapsam ve güncellik garanti değildir; bir kısmı eksik, bir kısmı tekrar eden, bir kısmı eski olabilir.
+Buradaki içeriğin bir kısmı doğrudan benim hazırladığım şeyler (anayasa kuralları, prompt blokları, `skills/` altındaki beceriler, betikler); bir kısmı ise çeşitli yerlerden toplayıp kendi iş akışıma göre not düştüğüm bilgiler. Hepsini kopyala-yapıştır edasıyla, hızlı erişim için bir arada tutuyorum. Düzen, kapsam ve güncellik garanti değil; eksik, tekrarlı veya eskimiş bölümler olabilir.
 
-Burada birilerine faydalı olmak, eğitim vermek veya destek sunmak gibi bir amaç yok. Notlar kendi iş akışımda işe yaradığı için burada; işinize yarıyorsa kullanın, yaramıyorsa çekinmeden kapatın.
+Buradan bilgi almak isteyenler için herhangi bir yasak ya da kısıtlama yok; isteyen bakabilir, kopyalayabilir, işine yarayan kısmı kullanabilir. Yalnız bu depo bir başvuru kaynağı olarak tasarlanmadı: notların işinize yarayacağının veya güncel olduğunun garantisi yoktur. Faydalı bulursanız ne güzel, bulamazsanız sorun değil.
 
 ## Ne var?
 
@@ -22,7 +22,7 @@ Burada birilerine faydalı olmak, eğitim vermek veya destek sunmak gibi bir ama
 - Arama: `grep -ri "terim" .` veya dosya adıyla; dizin yapısı bilinçli olarak düzenli değildir.
 - Notlar yazıldığı tarihte doğrulanmıştır; sürüm, API ve fiyat bilgileri değişebilir. Emin olunmayan ayrıntılar ilgili dosyada "doğrulanmalı" etiketiyle durur.
 - Komutları kendi ortamınızda denemeden uygulamayın; oluşabilecek veri kaybı veya hesap riski size aittir.
-- Destek, düzeltme talebi, issue takibi veya bakım taahhüdü yoktur.
+- Destek, düzeltme talebi veya issue takibi beklenmiyor; burada bir bakım taahhüdü yoktur.
 - Lisans yok; isteyen kopyalayıp kullanabilir, kaynak gösterme zorunluluğu yoktur.
 
 ## Başka bir şey arıyorsanız
