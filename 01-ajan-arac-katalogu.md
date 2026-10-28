@@ -16,6 +16,7 @@
 - https://github.com/upstash/context7 - Kütüphane/framework dokümantasyonunu sürüm bazlı MCP üzerinden verir; uydurma API kullanımını engeller.
 - https://github.com/mksglu/context-mode - Sandbox filtrelemesiyle %98 token tasarrufu ve yerel oturum hafızası sağlayan otomatik MCP aracı.
 - https://github.com/microsoft/markitdown - Dosyaları Markdown'a çevirerek okuma token maliyetini düşürür.
+- https://github.com/vectorize-io/hindsight - Ajan hafızası: konuşma geçmişini hatırlamanın ötesinde öğrenen kalıcı bellek; retain/recall/reflect işlemleri, MCP sunucusu ve kodlama ajanı entegrasyonları.
 - https://github.com/headroomlabs-ai/headroom - Denenmedi — kısaca ara yönetici (context broker).
 
 ## 3. Arayüz, Tasarım ve Tarayıcı
