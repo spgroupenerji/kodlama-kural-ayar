@@ -28,6 +28,7 @@
 - https://github.com/Leonxlnx/taste-skill - Kodlama ajanlarına "zevk" kazandıran skill'ler: sanat yönetimi, referans görsel ve tarayıcı kontrolü — jenerik AI sayfası yerine.
 - https://github.com/emilkowalski/skills - Vercel ve Linear deneyimine dayanan tasarım ve animasyon skill'leri; ajanın easing seçimi, gölge kullanımı ve native hissi gibi arayüz kararlarını iyileştirir.
 - https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md - Claude Code'un resmî `frontend-design` skill'i: arayüz tasarımı kuralları ve estetik kararlar.
+- https://github.com/meticsmedia/10k-websites - ChatGPT (Codex) için uçtan uca web sitesi becerisi: kaydırmayla oynayan açılış filmi, OpenArt ile görsel/video üretimi ve Hostinger'a tek adımda yayın.
 
 ## 4. İnceleme, Tersine Mühendislik ve CLI Dönüşümü
 
