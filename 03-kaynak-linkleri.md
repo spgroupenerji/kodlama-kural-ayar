@@ -11,7 +11,7 @@
 
 ## 2. Ajan Altyapısı, Model ve Bağlam Yönetimi
 
-- https://github.com/deepseek-ai/deepseek-harness - Her şeyin eklenti olduğu DeepSeek ajan altyapısı; bu not defterindeki ajan oturumları bu platformda çalışıyor.
+- https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart - DeepSeek Harness Web arayüzünün hızlı başlangıç rehberi: sunucuyu başlatma, model ve çalışma alanı seçme, ilk görevi çalıştırma.
 - https://github.com/headroomlabs-ai/headroom - Araç çıktısı, log ve RAG parçalarını LLM'e ulaşmadan sıkıştırır; kütüphane, proxy ve MCP sunucusu olarak çalışır (henüz denenmedi).
 - https://github.com/tashfeenahmed/freellmapi - 34 ücretsiz LLM sağlayıcısını tek `/v1` uç noktasında toplayan geçit; akıllı yönlendirme, otomatik yedekleme ve şifreli anahtar saklama sunar.
 - https://github.com/decolua/9router - Claude Code, Codex, Cursor, Cline gibi araçları 40+ ücretsiz sağlayıcıya bağlayan yönlendirici; otomatik yedekleme ve token tasarrufu.
