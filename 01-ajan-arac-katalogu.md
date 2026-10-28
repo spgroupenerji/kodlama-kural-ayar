@@ -17,11 +17,10 @@
 - https://github.com/mksglu/context-mode - Sandbox filtrelemesiyle %98 token tasarrufu ve yerel oturum hafızası sağlayan otomatik MCP aracı.
 - https://github.com/microsoft/markitdown - Dosyaları Markdown'a çevirerek okuma token maliyetini düşürür.
 - https://github.com/thedotmack/claude-mem - Kodlama ajanları için kalıcı hafıza sıkıştırma sistemi: oturum gözlemlerini yakalayıp semantik olarak özetler ve geçmiş bağlamı yeni oturumlara taşır.
-- https://github.com/headroomlabs-ai/headroom - Denenmedi — kısaca ara yönetici (context broker).
 
 ## 3. Arayüz, Tasarım ve Tarayıcı
 
-- https://github.com/ChromeDevTools/chrome-devtools-mcp - Ajanların Chrome'u MCP üzerinden kontrol etmesini, DOM/ağ trafiğini denetlemesini sağlayan resmî Google aracı.
+- https://github.com/ChromeDevTools/chrome-devtools-mcp - Ajanların Chrome'u MCP üzerinden kontrol etmesini, DOM/ağ trafiğini denetlemesini sağlayan resmî Google aracı. (Kurulum yaparken kullanılacak tarayıcının dizin yolunu iste.) 
 - https://github.com/nextlevelbuilder/ui-ux-pro-max-skill - 79 arayüz stili, renk paleti ve tipografi kuralıyla ajanın profesyonel tasarım sistemleri üretmesini sağlar.
 - https://github.com/pbakaus/impeccable - Ajanların ürettiği basmakalıp "AI slop" tasarımları 61 kural ile denetleyerek kaliteyi yükselten tasarım kılavuzu.
 - https://github.com/VoltAgent/awesome-design-md - Apple, Stripe gibi markaların tasarım dillerini içeren `DESIGN.md` arşivi; ajanın bu standartlarda UI üretmesini sağlar.
@@ -34,10 +33,8 @@
 ## 4. İnceleme, Tersine Mühendislik ve CLI Dönüşümü
 
 - https://github.com/alibaba/open-code-review - Kural bazlı filtreler ile LLM'leri birleştirerek satır bazlı hata ve güvenlik açıklarını tespit eden hibrit inceleme aracı.
-- https://github.com/HKUDS/CLI-Anything - Grafik arayüzlü (GUI) yazılımların kodunu analiz ederek ajanların doğrudan kullanabileceği CLI araçlarına dönüştürür.
 - https://github.com/aicodeking/leanrea - Tersine mühendisliği tek bir 8 KB'lık skill dosyasına indiren yaklaşım; MCP katmanı yerine ajana dosya türüne göre en hızlı komutu (otool, jadx, binwalk vb.) seçtiren düz talimatlar sunar.
 - https://github.com/morluto/rea - Kaynak kodu olmayan yazılımları kanıtlarıyla inceleyip bulguları ajana döndüren tersine mühendislik MCP sunucusu ve CLI; ikili dosyalar, APK, WASM, Electron ve .NET hedeflerini yerelde statik analiz eder.
-- https://github.com/morluto/awesome-reverse-engineering - İkili dosyalar, uygulamalar, firmware, dosya formatları ve protokolleri anlamak için seçilmiş tersine mühendislik araçları ve öğrenme kaynakları listesi.
 
 ## 5. Video ve Hareketli Grafik (Motion Design)
 
