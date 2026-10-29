@@ -1,6 +1,6 @@
 # Ajan Araçları Kataloğu
 
-> Bu dosya, ajan oturumunda "hangi işe hangi araç" sorusunu hızlı yanıtlamak için tutulan kişisel bir katalogdur. Bağlantılar 2026-10-28 tarihinde HTTP durum koduyla doğrulandı; 2026-10-30'da eklenen dört bağlantı aynı gün HTTP 200 ile doğrulandı; HTTP 200 dışında yanıt veren giriş ayrıca işaretlendi. Her madde `- URL - açıklama` kalıbındadır; bağlantılar değiştirilmez, güncelliği doğrulanamayan bilgi "doğrulanmalı" etiketi taşır.
+> Bu dosya, ajan oturumunda "hangi işe hangi araç" sorusunu hızlı yanıtlamak için tutulan kişisel bir katalogdur. Bağlantılar 2026-10-28 tarihinde HTTP durum koduyla doğrulandı; 2026-10-30'da eklenen üç bağlantı aynı gün HTTP 200 ile doğrulandı; HTTP 200 dışında yanıt veren giriş ayrıca işaretlendi. Her madde `- URL - açıklama` kalıbındadır; bağlantılar değiştirilmez, güncelliği doğrulanamayan bilgi "doğrulanmalı" etiketi taşır.
 
 ## 0. Benim İçin Kritik
 
@@ -33,7 +33,6 @@ Büyük araç çıktısını küçültürken, belgeyi okunabilir hâle getirirke
 
 - https://github.com/mksglu/context-mode - Araç çıktısını sandbox'ta filtreleyip oturum hafızasını kalıcılaştıran, MCP ve hook'larla platformlar arası yönlendirme yapan bağlam penceresi iyileştiricisi (üretici iddiası: %98'e varan azaltma).
 - https://github.com/microsoft/markitdown - Dosya ve ofis belgelerini Markdown'a çevirerek okuma token maliyetini düşüren resmî Microsoft aracı.
-- https://github.com/opendatalab/mineru - PDF, taranmış belge, ofis dosyası ve e-kitabı OCR'layıp tablo ve formül düzenini koruyarak Markdown'a çeviren yerel ayrıştırıcı; sayfa/blok konumu verir ve ajan becerisi olarak da kurulur.
 - https://github.com/thedotmack/claude-mem - Oturum gözlemlerini yakalayıp semantik olarak sıkıştıran ve ilgili bağlamı sonraki oturumlara enjekte eden kalıcı hafıza sistemi.
 
 ## 4. Arayüz ve Tasarım
