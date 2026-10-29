@@ -1,6 +1,6 @@
 # Ajan Araçları Kataloğu
 
-> Bu dosya, ajan oturumunda "hangi işe hangi araç" sorusunu hızlı yanıtlamak için tutulan kişisel bir katalogdur. Bağlantılar 2026-10-28 tarihinde HTTP durum koduyla doğrulandı; HTTP 200 dışında yanıt veren giriş ayrıca işaretlendi. Her madde `- URL - açıklama` kalıbındadır; bağlantılar değiştirilmez, güncelliği doğrulanamayan bilgi "doğrulanmalı" etiketi taşır.
+> Bu dosya, ajan oturumunda "hangi işe hangi araç" sorusunu hızlı yanıtlamak için tutulan kişisel bir katalogdur. Bağlantılar 2026-10-28 tarihinde HTTP durum koduyla doğrulandı; 2026-10-30'da eklenen dört bağlantı aynı gün HTTP 200 ile doğrulandı; HTTP 200 dışında yanıt veren giriş ayrıca işaretlendi. Her madde `- URL - açıklama` kalıbındadır; bağlantılar değiştirilmez, güncelliği doğrulanamayan bilgi "doğrulanmalı" etiketi taşır.
 
 ## 0. Benim İçin Kritik
 
@@ -33,6 +33,7 @@ Büyük araç çıktısını küçültürken, belgeyi okunabilir hâle getirirke
 
 - https://github.com/mksglu/context-mode - Araç çıktısını sandbox'ta filtreleyip oturum hafızasını kalıcılaştıran, MCP ve hook'larla platformlar arası yönlendirme yapan bağlam penceresi iyileştiricisi (üretici iddiası: %98'e varan azaltma).
 - https://github.com/microsoft/markitdown - Dosya ve ofis belgelerini Markdown'a çevirerek okuma token maliyetini düşüren resmî Microsoft aracı.
+- https://github.com/opendatalab/mineru - PDF, taranmış belge, ofis dosyası ve e-kitabı OCR'layıp tablo ve formül düzenini koruyarak Markdown'a çeviren yerel ayrıştırıcı; sayfa/blok konumu verir ve ajan becerisi olarak da kurulur.
 - https://github.com/thedotmack/claude-mem - Oturum gözlemlerini yakalayıp semantik olarak sıkıştıran ve ilgili bağlamı sonraki oturumlara enjekte eden kalıcı hafıza sistemi.
 
 ## 4. Arayüz ve Tasarım
@@ -47,6 +48,7 @@ Web arayüzü üretirken estetik kararlar, tasarım sistemi veya canvas efektler
 - https://github.com/emilkowalski/skills - Vercel ve Linear deneyimine dayanan tasarım ve animasyon becerileri; easing, gölge ve native his kararlarını iyileştirir.
 - https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md - Claude Code'un resmî `frontend-design` becerisi: arayüz tasarımı kuralları ve estetik kararlar (bağlantı 2026-10-28 itibarıyla 404 döndü; beceri `anthropics/skills` deposuna taşınmış görünüyor — doğrulanmalı).
 - https://github.com/meticsmedia/10k-websites - ChatGPT/Codex için uçtan uca web sitesi becerisi: kaydırmayla oynayan açılış filmi, OpenArt ile görsel/video üretimi ve Hostinger'a tek adımda yayın.
+- https://github.com/nutlope/hallmark - Together AI'nin tasarım becerisi: 50 temalı malzeme kataloğundan üç tema seçip sayfayı ziyaretçinin işine göre kurar, sonucu gerçek tarayıcıda makine üretimi izlerine karşı lint eder.
 
 ## 5. İnceleme ve Tersine Mühendislik
 
@@ -85,3 +87,10 @@ Kodla video üretirken üç katman: ajan becerisi (6.1), altta çalışan motor 
 
 - https://github.com/calesthio/OpenMontage - Ajanı otonom video stüdyosuna çeviren açık kaynak sistem: Remotion, FFmpeg ve yapay zekâ video/ses modellerini (Veo, Kling, TTS) 12 üretim hattında orkestre eder.
 - https://prompt-motion.com - Claude Opus 5.5 ile üretilmiş motion videolarının prompt ve becerilerini kategorilere ayıran koleksiyon sitesi (ürün arayüzü, kinetik tipografi, partikül, grafik, müzik vb.).
+
+## 7. 3B Modelleme ve Sahne
+
+Görselden veya Blender'dan kod tabanlı 3B model ve sahne üretirken buraya bak.
+
+- https://github.com/img2threejs/img2threejs - Referans görseldeki nesneyi fotogrametri veya hazır varlık kullanmadan, kalite kapılı ve animasyona hazır prosedürel Three.js koduyla yeniden inşa eden beceri.
+- https://github.com/ahujasid/mcp-for-blender - Blender'ı MCP üzerinden ajana bağlayan sunucu ve eklenti: istemli 3B modelleme, sahne kurma ve manipülasyon (eski adı blender-mcp).
