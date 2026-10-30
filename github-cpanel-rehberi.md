@@ -1,68 +1,69 @@
 # GitHub + cPanel Komut Şablonları
 
-```bash
-git init -b main
-git add -A
-git commit -m 'ilk commit'
-git remote add origin "https://spgroupenerji:$t@github.com/spgroupenerji/$depo.git"
-git push -u origin main
-```
+Her blok olduğu gibi yapıştırılır; değerler çalışırken sorulur.
 
-## 2) Tek satır — sıfırdan kurulum
+## 1) Sıfırdan kurulum
 
-Windows PowerShell:
+GitHub'da boş depo açılmış olmalı. Windows PowerShell (cmd.exe değil):
 
 ```powershell
-$g=(Read-Host 'Token veya link').Trim().Trim("'"" "); if ($g -like 'http*') { $u=$g } else { $u="https://spgroupenerji:$g@github.com/spgroupenerji/$depo.git" }; $m=Read-Host 'Commit mesajı'; if (-not $m) { $m='ilk commit' }; if (-not (Test-Path .git)) { git init -b main }; git add -A; git diff --cached --quiet; if ($LASTEXITCODE -ne 0) { git commit -m $m }; git remote remove origin 2>$null; git remote add origin $u; git push -u origin main; Remove-Variable g,u
+$u=(Read-Host 'Tokenli link').Trim("'"" "); if(-not(Test-Path .git)){git init -q}; git add -A; git diff --cached --quiet; if($LASTEXITCODE -ne 0){git -c user.name=spgroupenerji -c user.email=spgroup.enerji@gmail.com commit -m 'ilk commit'}; git branch -M main; git remote remove origin 2>&1 | Out-Null; git remote add origin $u; git push -u origin main
 ```
 
 macOS/Linux/cPanel:
 
 ```bash
-printf 'Token veya link: '; read -r g; g=$(printf '%s' "$g" | sed -e "s/^[[:space:]'\"]*//" -e "s/[[:space:]'\"]*$//"); case "$g" in http*) u=$g;; *) u="https://spgroupenerji:$g@github.com/spgroupenerji/$depo.git";; esac; printf 'Commit mesajı: '; read -r m; [ -z "$m" ] && m='ilk commit'; [ -d .git ] || git init -b main; git add -A; git diff --cached --quiet || git commit -m "$m"; git remote remove origin 2>/dev/null; git remote add origin "$u"; git push -u origin main
+printf 'Tokenli link: '; read -r u; u=$(printf '%s' "$u" | tr -d " '\""); [ -d .git ] || git init -q; git add -A; git diff --cached --quiet || git -c user.name=spgroupenerji -c user.email=spgroup.enerji@gmail.com commit -m 'ilk commit'; git branch -M main; git remote remove origin 2>/dev/null; git remote add origin "$u"; git push -u origin main
 ```
 
-## 3) Tek satır — push
+## 2) Push
 
 Windows PowerShell:
 
 ```powershell
-git add -A; git diff --cached --quiet; if ($LASTEXITCODE -ne 0) { $m=Read-Host 'Commit mesajı'; if (-not $m) { $m='guncelleme' }; git commit -m $m }; git push origin main
+git add -A; git diff --cached --quiet; if($LASTEXITCODE -ne 0){$m=Read-Host 'Mesaj'; if(-not $m){$m='guncelleme'}; git -c user.name=spgroupenerji -c user.email=spgroup.enerji@gmail.com commit -m $m}; git push origin main
 ```
 
 macOS/Linux/cPanel:
 
 ```bash
-git add -A; if ! git diff --cached --quiet; then printf 'Commit mesajı: '; read -r m; git commit -m "${m:-guncelleme}"; fi; git push origin main
+git add -A; git diff --cached --quiet || { printf 'Mesaj: '; read -r m; git -c user.name=spgroupenerji -c user.email=spgroup.enerji@gmail.com commit -m "${m:-guncelleme}"; }; git push origin main
 ```
 
-## 4) Tek satır — pull
-
-Windows PowerShell / macOS / Linux / cPanel:
+## 3) Pull
 
 ```bash
 git pull --ff-only origin main
 ```
 
-Fark yok. cPanel'de `dubious ownership` hatası: `git config --global --add safe.directory "$PWD"`.
-
-## 5) Webhook (cPanel)
+cPanel'de `dubious ownership` hatası alırsan:
 
 ```bash
-openssl rand -hex 32
+git config --global --add safe.directory "$PWD"
 ```
 
-`.env` → `DEPLOY_WEBHOOK_SECRET=<sır>` · doğrula: `php deploy.php durum`
+## 4) Webhook (cPanel)
 
-GitHub → Settings → Webhooks → Add webhook:
-
-`Payload URL: https://<alanadi>.com.tr/deploy/deploy.php?kanca=github`
-
-`Content type: application/json` · Events: push · SSL: Enable · Secret: sır
-
-
-## 6) Cron (cPanel, opsiyonel)
+`deploy.php`'nin yanında çalıştır; sırrı `.env`'e yazar ve yazdırır (`.env` `.gitignore`'da olmalı):
 
 ```bash
-export HOME="/home/<kullanici>"; export PATH=/usr/local/cpanel/3rdparty/bin:/usr/local/bin:/usr/bin:/bin; D="$HOME/app.<alanadi>.com"; L="$HOME/deploy.log"; cd "$D" || { echo "$(date '+%F %T') CD BASARISIZ" >> "$L"; exit 1; }; O=$(git rev-parse HEAD); E=$(git pull --ff-only origin main 2>&1); C=$?; N=$(git rev-parse HEAD); if [ $C -ne 0 ]; then echo "$(date '+%F %T') HATA: $E" >> "$L"; elif [ "$O" != "$N" ]; then echo "$(date '+%F %T') GUNCELLENDI ${O:0:7} -> ${N:0:7}" >> "$L"; fi
+grep -q '^DEPLOY_WEBHOOK_SECRET=' .env 2>/dev/null && sed -i "s|^DEPLOY_WEBHOOK_SECRET=.*|DEPLOY_WEBHOOK_SECRET=$(php -r 'echo bin2hex(random_bytes(32));')|" .env || printf '\nDEPLOY_WEBHOOK_SECRET=%s\n' "$(php -r 'echo bin2hex(random_bytes(32));')" >> .env; sed -n 's/^DEPLOY_WEBHOOK_SECRET=//p' .env | tail -1; php deploy.php durum
+```
+
+Payload URL için alan adını yaz:
+
+```bash
+printf 'Alan adı: '; read -r a; a=$(printf '%s' "$a" | tr -d " '\""); a=${a#http://}; a=${a#https://}; a=${a%%/*}; printf 'https://%s/deploy/deploy.php?kanca=github\n' "$a"
+```
+
+GitHub → depo → Settings → Webhooks → Add webhook: Payload URL = ikinci komutun çıktısı · Content type `application/json` · Secret = birinci komutun çıktısı · SSL: Enable · Events: push.
+
+## 5) Cron (cPanel, opsiyonel)
+
+Proje kökünde çalıştır; çıktıyı Cron Jobs → Add Cron Job → Command alanına yapıştır, aralığı seç:
+
+```bash
+sed "s|@D@|$PWD|g; s|@L@|$HOME/deploy.log|g" <<'EOS'
+command -v git >/dev/null || export PATH="/usr/local/cpanel/3rdparty/bin:$PATH"; cd @D@ || { echo "$(date) CD BASARISIZ" >> @L@; exit 1; }; O=$(git rev-parse --short HEAD); E=$(git pull -q --ff-only origin main 2>&1); C=$?; N=$(git rev-parse --short HEAD); if [ $C -ne 0 ]; then echo "$(date) HATA: $E" >> @L@; elif [ "$O" != "$N" ]; then echo "$(date) GUNCELLENDI $O -> $N" >> @L@; fi
+EOS
 ```
