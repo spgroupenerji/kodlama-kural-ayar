@@ -1,12 +1,13 @@
 # Ajan Araçları Kataloğu
 
-> Bu dosya, ajan oturumunda "hangi işe hangi araç" sorusunu hızlı yanıtlamak için tutulan kişisel bir katalogdur. Bağlantılar 2026-10-28 tarihinde HTTP durum koduyla doğrulandı; 2026-10-30'da eklenen dört bağlantı ve 2026-10-31'de eklenip `npx skills add -g` ile kurulan üç beceri bağlantısı aynı gün HTTP 200 ile doğrulandı; HTTP 200 dışında yanıt veren giriş ayrıca işaretlendi. Her madde `- URL - açıklama` kalıbındadır; bağlantılar değiştirilmez, güncelliği doğrulanamayan bilgi "doğrulanmalı" etiketi taşır.
+> Bu dosya, ajan oturumunda "hangi işe hangi araç" sorusunu hızlı yanıtlamak için tutulan kişisel bir katalogdur. Bağlantılar 2026-10-28 tarihinde HTTP durum koduyla doğrulandı; 2026-10-30'da eklenen dört bağlantı ve 2026-10-31'de eklenip `npx skills add -g` ile kurulan beceri bağlantıları aynı gün HTTP 200 ile doğrulandı; HTTP 200 dışında yanıt veren giriş ayrıca işaretlendi. 2026-10-31'de katalog yeniden düzenlendi: sekiz hareketli grafik bağlantısı çıkarıldı, `prompt-motion.com` kaynak listesine taşındı, kaynak listesindeki sekiz bağlantı buraya alındı ve iki alt beceri eklendi. Her madde `- URL - açıklama` kalıbındadır; bağlantılar değiştirilmez, güncelliği doğrulanamayan bilgi "doğrulanmalı" etiketi taşır.
 
 ## 0. Benim İçin Kritik
 
-Bu üçü, ajan oturumlarında en sık başvurduğum temel araçlar; diğer bölümlerde tekrar edilmez.
+Bu dördü, ajan oturumlarında en sık başvurduğum temel araçlar; diğer bölümlerde tekrar edilmez.
 
 - https://github.com/obra/superpowers - Ajanı hemen koda daldırmayıp beyin fırtınası, şartname, planlama ve TDD adımlarından geçiren metodoloji çerçevesi.
+- https://github.com/spgroupenerji/skills - SP GROUP ajan yeteneklerinin deposu (2026-10-30, HTTP 200); yetenek kataloğu depodaki `README.md` dosyasındadır.
 - https://github.com/upstash/context7 - Kütüphane ve framework dokümantasyonunu sürüm bazlı MCP üzerinden vererek uydurma API kullanımını engelleyen platform.
 - https://github.com/ChromeDevTools/chrome-devtools-mcp - Ajanların Chrome'u MCP üzerinden kontrol etmesini, DOM ve ağ trafiğini denetlemesini sağlayan resmî Chrome DevTools aracı; kurulumda kullanılacak tarayıcı profil dizinini ister.
 
@@ -51,13 +52,15 @@ Web arayüzü üretirken estetik kararlar, tasarım sistemi veya canvas efektler
 - https://github.com/meodai/skill.color-expert - Renk bilimi için ajan becerisi: renk uzayları, APCA/WCAG erişilebilirliği, palet üretimi, pigment karışımı ve tarihsel renk kuramını kapsayan 180'den fazla referans dosyası; Claude Code, Codex, Cursor ve Copilot ile çalışır.
 - https://github.com/borghei/Claude-Skills/blob/main/engineering/design-auditor/SKILL.md - Arayüz tasarımını 12 kategoride puanlayan, yapay zekâ slop kalıplarını ve WCAG renk uyumunu yakalayan, tasarım token'ı uyumunu ölçen ajan becerisi; borghei/Claude-Skills deposundaki 383 beceriden biri.
 
-## 5. İnceleme ve Tersine Mühendislik
+## 5. İnceleme, Güvenlik ve Tersine Mühendislik
 
-Kod incelemesi veya ikili/uygulama çözümlemesi gerektiğinde buraya bak.
+Kod incelemesi, güvenlik testi veya ikili/uygulama çözümlemesi gerektiğinde buraya bak.
 
 - https://github.com/alibaba/open-code-review - Deterministik kurallar ile LLM ajanını birleştirerek satır bazlı hata ve güvenlik açığı (NPE, thread-safety, XSS, SQL injection) tespit eden inceleme aracı.
 - https://github.com/morluto/rea - İkili dosya, uygulama ve çalışma zamanı davranışını yerelde analiz eden, Ghidra/JADX/apktool/binwalk gibi araçları tek MCP altında toplayan tersine mühendislik sunucusu.
 - https://github.com/aicodeking/leanrea - REA'nın MCP katmanını atıp 8 KB'lık tek `SKILL.md` ile ajana hedef türüne göre en hızlı komutu (otool, jadx, binwalk vb.) seçtiren alternatif.
+- https://github.com/usestrix/strix - Açık kaynak yapay zekâ sızma testi aracı; uygulamanın açıklarını bulup düzeltmeye yardım eder.
+- https://github.com/Jakeschincariol/replica-skill - Herhangi bir uygulamayı tersine mühendislikle klonlayıp yeniden kuran, hatalarını ayıklayan on bir ücretsiz Claude becerisi.
 
 ## 6. Video ve Hareketli Grafik
 
@@ -65,16 +68,10 @@ Kodla video üretirken üç katman: ajan becerisi (6.1), altta çalışan motor 
 
 ### 6.1 Ajan Yetenekleri
 
-- https://github.com/AbubakrChan/product-launch-motion - Koddan Dribbble seviyesinde ürün lansman videosu üreten Claude Code becerisi; tek şekil hiç kesilmez, imleç değişimi sürükler, ses efektleri ritme oturur.
-- https://github.com/charlie947/motion-graphics-skills - Lansman kalitesinde hareketli grafik için 13 Claude Code becerisi; her kare kod, After Effects yok.
-- https://github.com/howseen-ai/claude-motion-design - Saf kodla motion design: HTML + Playwright + ffmpeg; After Effects ve Remotion lisansı olmadan video üretir.
 - https://github.com/nateherkai/herk-edit-kit - Codex veya Claude Code ile video, Reels ve YouTube Shorts kurgusu; HyperFrames + GSAP tabanlı, 15 beceri ve 406 motion-graphics kartı.
-- https://github.com/Barty-Bart/motion-graphics - Claude Code için ücretsiz video kurgu becerileri: konuşmaya senkron B-roll ve arka plan izolasyonu; her beceri tek iş yapar.
+- https://github.com/eyaprak/skills/tree/main/hyperframes-studio - HyperFrames ile 16:9 açılış hook'u, 9:16 Shorts veya animasyonlu slidedeck üreten hepsi bir arada studio; koyu tema, tek marka rengi ve self-hosted Manrope + JetBrains Mono fontlarla oynatılabilir kompozisyon çıkarır.
+- https://github.com/omergocmen/anything2explainer - Herhangi bir konuyu seslendirmeli, altyazılı ve bölüm çubuklu kara tuval animasyon anlatım videosuna çeviren Claude Code/Codex becerisi.
 - https://github.com/cth9191/animate - Her stilde (piksel sanatı, kesme kâğıt vb.) prosedürel animasyon: hikâye, görsel ve storyboard kontrolleri içeren tek dosya canvas videoları.
-- https://github.com/whaleyxbt/claude-motion - Kodlama ajanına Remotion API'sinin ötesinde zevk, kendi karelerini denetleme ve ses motoru kazandıran motion tasarım araç kiti; simülasyonları 60 fps videoya çevirir.
-- https://github.com/haidrrrry/claude-remotion-skill - Claude Code, Claude Desktop ve Claude AI'a Remotion ile B-roll, altyazı ve ses tasarımı üretmeyi öğreten açık kaynak beceri.
-- https://github.com/199-biotechnologies/motion-dev-animations-skill - Motion.dev için Claude Code becerisi: 120fps web animasyonu, yay fiziği, scroll efekti ve gesture.
-- https://github.com/remotion-dev/skills - Resmî ajan becerileri: kodlama ajanlarına Remotion kurallarını ve proje yapısını öğretir.
 - https://github.com/greensock/gsap-skills - GSAP'in resmî AI becerileri; zaman çizelgesi ve animasyonu doğru API ile kullandırır.
 - https://github.com/LottieFiles/motion-design-skill - Zamanlama, easing, koreografi ve Disney'in 12 animasyon prensibini ajanlara aktaran evrensel prensip deposu.
 
@@ -87,7 +84,6 @@ Kodla video üretirken üç katman: ajan becerisi (6.1), altta çalışan motor 
 ### 6.3 Üretim Hattı ve Koleksiyonlar
 
 - https://github.com/calesthio/OpenMontage - Ajanı otonom video stüdyosuna çeviren açık kaynak sistem: Remotion, FFmpeg ve yapay zekâ video/ses modellerini (Veo, Kling, TTS) 12 üretim hattında orkestre eder.
-- https://prompt-motion.com - Claude Opus 5.5 ile üretilmiş motion videolarının prompt ve becerilerini kategorilere ayıran koleksiyon sitesi (ürün arayüzü, kinetik tipografi, partikül, grafik, müzik vb.).
 
 ## 7. 3B Modelleme ve Sahne
 
@@ -96,14 +92,19 @@ Görselden veya Blender'dan kod tabanlı 3B model ve sahne üretirken buraya bak
 - https://github.com/img2threejs/img2threejs - Referans görseldeki nesneyi fotogrametri veya hazır varlık kullanmadan, kalite kapılı ve animasyona hazır prosedürel Three.js koduyla yeniden inşa eden beceri.
 - https://github.com/ahujasid/mcp-for-blender - Blender'ı MCP üzerinden ajana bağlayan sunucu ve eklenti: istemli 3B modelleme, sahne kurma ve manipülasyon (eski adı blender-mcp).
 
-## 8. Kendi Skill Kütüphanem
-
-Kendi revize ettiğim ajan yetenekleri; depo DSH'ye junction ile bağlanır ve `git pull` ile güncellenir.
-
-- https://github.com/spgroupenerji/skills - SP GROUP ajan yeteneklerinin deposu (2026-10-30, HTTP 200); yetenek kataloğu depodaki `README.md` dosyasındadır.
-
-## 9. Metin ve Üslup
+## 8. Metin ve Üslup
 
 İngilizce metin üretirken veya düzyazıyı yeniden yazarken üslup kararları için buraya bak.
 
 - https://github.com/SHADOWPR0/beautiful_prose - İngilizce düzyazıyı modern yapay zekâ kalıplarından (em dash, "şu değil bu" kurgusu, terapötik ton, dolgu) arındıran katı üslup sözleşmesi; her isteğe kayıt, yoğunluk, sıcaklık ve uzunluk etiketiyle yön verilir.
+- https://github.com/blader/humanizer - Yapay zekâ yazımının izlerini silen ajan becerisi; Wikipedia'nın "AI yazımı belirtileri" rehberine dayanır, anlamı değiştirmez.
+
+## 9. Araştırma, SEO ve Pazarlama
+
+Web'de araştırma yaparken, arama görünürlüğünü ve pazarlama içeriğini yönetirken buraya bak.
+
+- https://github.com/Panniantong/Agent-Reach - Ajana internet gözü: Twitter, Reddit, YouTube, GitHub, Bilibili ve XiaoHongShu okuma/arama için tek CLI, API ücreti yok.
+- https://github.com/every-app/open-seo - Semrush ve Ahrefs'e açık kaynak alternatif; anahtar kelime araştırması, site denetimi ve geri bağlantı analizi.
+- https://github.com/Auriti-Labs/geo-optimizer-skill - Sitenizin ChatGPT, Perplexity, Gemini ve Google AI Overviews tarafından alıntılanıp alıntılanmadığını 0-100 puanlayan açık kaynak GEO/AEO denetim aracı; CLI, Python ve MCP.
+- https://github.com/AminForou/mcp-gsc - Google Search Console verisini doğal dille sorgulamak için MCP sunucusu; Claude Desktop, Cursor, Codex CLI gibi istemcilerle çalışır.
+- https://github.com/eyaprak/skills/tree/main/seo-expert - Uçtan uca SEO içerik üretim hattı: trend analizi, derin araştırma, ana hat planlama, kalite kapılı yazım ve yayına hazır HTML çıktısı.
