@@ -1,6 +1,6 @@
 # Kaynak Linkleri
 
-> Kaynak: `01-ajan-arac-katalogu.md` 5.3'ün son maddesi, 6 ve 7. bölümlerden ayrıldı (2026-10-25); 2026-10-28'de kullanıcı eklemeleriyle genişletildi. Bütün bağlantılar 2026-10-28 tarihinde canlı doğrulandı (HTTP 200); açıklamalar depo/sayfa açıklamalarından yeniden yazıldı.
+> Kaynak: `01-ajan-arac-katalogu.md` 5.3'ün son maddesi, 6 ve 7. bölümlerden ayrıldı (2026-10-25); 2026-10-28'de kullanıcı eklemeleriyle genişletildi. Bağlantılar 2026-10-28 ve 2026-10-31 tarihlerinde canlı doğrulandı (HTTP 200); açıklamalar depo/sayfa açıklamalarından yeniden yazıldı.
 
 ## 1. Ajan ve CLI Dokümantasyonu
 
@@ -47,9 +47,11 @@
 - https://whatships.com/ - X'te paylaşılan 2.000'den fazla startup lansman videosunu orijinal gönderilere bağlayarak listeleyen dizin.
 - https://github.com/usestrix/strix - Açık kaynak yapay zekâ sızma testi aracı; uygulamanın açıklarını bulup düzeltmeye yardım eder.
 - https://mcp.orphex.co/?utm_source=orphex.co&utm_medium=referral - Dijital pazarlama bütçe ve teklif yönetimini Claude, ChatGPT ve Copilot üzerinden otomatikleştiren MCP servisi.
+- https://github.com/MG1937/ASC - R8 derleyici optimizasyonunu decompiler ilkesi olarak kullanan hızlı ve hafif Android APK çözücü; ajanlar ve mobil araştırmacılar için tasarlandı, Rust sürümü (rust_ASC) 16 iş parçacığıyla 383 MB'lık APK'yı 4 saniyede açıyor (üretici iddiası).
 
 ## 6. Ön Yüz, Tasarım ve Performans Araçları
 
 - https://lenis.dev/ - Hafif ve performanslı yumuşak kaydırma kütüphanesi; JavaScript, React ve Vue ile yatay kaydırma, sonsuz kaydırma ve scroll snapping destekler.
 - https://spline.design/ - Tarayıcıda çalışan ücretsiz 3B tasarım aracı; ekip ve ajanlar aynı sahnede modelleme, animasyon ve etkileşimli 3B çıktı üretir.
 - https://pagespeed.web.dev/ - Google PageSpeed Insights: sayfa hızı ve Core Web Vitals ölçümü; laboratuvar ve gerçek kullanıcı verisini birlikte verir.
+- https://svgl.app/ - Popüler marka ve teknolojilerin logolarını SVG olarak arayıp kopyalamayı sağlayan logo kütüphanesi; açık ve koyu tema sürümleri vardır.

@@ -1,6 +1,6 @@
 # Ajan Araçları Kataloğu
 
-> Bu dosya, ajan oturumunda "hangi işe hangi araç" sorusunu hızlı yanıtlamak için tutulan kişisel bir katalogdur. Bağlantılar 2026-10-28 tarihinde HTTP durum koduyla doğrulandı; 2026-10-30'da eklenen dört bağlantı aynı gün HTTP 200 ile doğrulandı; HTTP 200 dışında yanıt veren giriş ayrıca işaretlendi. Her madde `- URL - açıklama` kalıbındadır; bağlantılar değiştirilmez, güncelliği doğrulanamayan bilgi "doğrulanmalı" etiketi taşır.
+> Bu dosya, ajan oturumunda "hangi işe hangi araç" sorusunu hızlı yanıtlamak için tutulan kişisel bir katalogdur. Bağlantılar 2026-10-28 tarihinde HTTP durum koduyla doğrulandı; 2026-10-30'da eklenen dört bağlantı ve 2026-10-31'de eklenip `npx skills add -g` ile kurulan üç beceri bağlantısı aynı gün HTTP 200 ile doğrulandı; HTTP 200 dışında yanıt veren giriş ayrıca işaretlendi. Her madde `- URL - açıklama` kalıbındadır; bağlantılar değiştirilmez, güncelliği doğrulanamayan bilgi "doğrulanmalı" etiketi taşır.
 
 ## 0. Benim İçin Kritik
 
@@ -48,6 +48,8 @@ Web arayüzü üretirken estetik kararlar, tasarım sistemi veya canvas efektler
 - https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md - Claude Code'un resmî `frontend-design` becerisi: arayüz tasarımı kuralları ve estetik kararlar (bağlantı 2026-10-28 itibarıyla 404 döndü; beceri `anthropics/skills` deposuna taşınmış görünüyor — doğrulanmalı).
 - https://github.com/meticsmedia/10k-websites - ChatGPT/Codex için uçtan uca web sitesi becerisi: kaydırmayla oynayan açılış filmi, OpenArt ile görsel/video üretimi ve Hostinger'a tek adımda yayın.
 - https://github.com/nutlope/hallmark - Together AI'nin tasarım becerisi: 50 temalı malzeme kataloğundan üç tema seçip sayfayı ziyaretçinin işine göre kurar, sonucu gerçek tarayıcıda makine üretimi izlerine karşı lint eder.
+- https://github.com/meodai/skill.color-expert - Renk bilimi için ajan becerisi: renk uzayları, APCA/WCAG erişilebilirliği, palet üretimi, pigment karışımı ve tarihsel renk kuramını kapsayan 180'den fazla referans dosyası; Claude Code, Codex, Cursor ve Copilot ile çalışır.
+- https://github.com/borghei/Claude-Skills/blob/main/engineering/design-auditor/SKILL.md - Arayüz tasarımını 12 kategoride puanlayan, yapay zekâ slop kalıplarını ve WCAG renk uyumunu yakalayan, tasarım token'ı uyumunu ölçen ajan becerisi; borghei/Claude-Skills deposundaki 383 beceriden biri.
 
 ## 5. İnceleme ve Tersine Mühendislik
 
@@ -99,3 +101,9 @@ Görselden veya Blender'dan kod tabanlı 3B model ve sahne üretirken buraya bak
 Kendi revize ettiğim ajan yetenekleri; depo DSH'ye junction ile bağlanır ve `git pull` ile güncellenir.
 
 - https://github.com/spgroupenerji/skills - SP GROUP ajan yeteneklerinin deposu (2026-10-30, HTTP 200); yetenek kataloğu depodaki `README.md` dosyasındadır.
+
+## 9. Metin ve Üslup
+
+İngilizce metin üretirken veya düzyazıyı yeniden yazarken üslup kararları için buraya bak.
+
+- https://github.com/SHADOWPR0/beautiful_prose - İngilizce düzyazıyı modern yapay zekâ kalıplarından (em dash, "şu değil bu" kurgusu, terapötik ton, dolgu) arındıran katı üslup sözleşmesi; her isteğe kayıt, yoğunluk, sıcaklık ve uzunluk etiketiyle yön verilir.
