@@ -1,8 +1,8 @@
-# Sunucu Ortamı Karşılaştırması — phpMyAdmin Sistem Bilgileri
+# Sunucu Bilgileri — Ortam Karşılaştırması ve PHP Eklenti Envanteri
 
-> Kaynak: `sunucu.jpg` (ekran görüntüsü; iki phpMyAdmin açılış sayfasının sistem bilgi kutuları yan yana karşılaştırılmış)
+> Kaynak: `sunucu.jpg` (phpMyAdmin sistem bilgileri ekran görüntüsü) ve SSH oturum dökümü (2026-10-23).
 
-İki farklı barındırma ortamının phpMyAdmin sistem bilgileri. Sol sütun yerel/Windows ortamını, sağ sütun cPanel (CloudLinux) ortamını temsil eder.
+İki farklı barındırma ortamının phpMyAdmin sistem bilgileri: sol sütun yerel/Windows, sağ sütun cPanel (CloudLinux).
 
 ## Sol Sütun — Yerel Windows Ortamı
 
@@ -67,4 +67,155 @@
 
 Not: Yerel ortamdaki `cp1252 (latin1)` karakter seti, Türkçe karakterli verilerin taşıma sırasında bozulmasına yol açabileceğinden canlıya (`utf8mb4`) aktarımda dikkat gerektirir (doğrulanmalı).
 
-İlgili: cPanel/CloudLinux ortamında PHP 8.4 eklenti envanterinin tam dökümü (`selectorctl` çıktısı) için bkz. `github-cpanel-rehberi.md` → "Sunucu Ortamı Gerçekleri (<sunucu> — app.<alanadi>.com)" bölümü.
+## PHP Eklenti Envanteri — cPanel / CloudLinux
+
+> cPanel sunucusu: `<sunucu>` — `app.<alanadi>.com`, PHP 8.4.21.
+
+Sorgu (CloudLinux `selectorctl`):
+
+```bash
+selectorctl --list-user-extensions --version=8.4 --all
+```
+
+İşaretler: `+` seçili/aktif, `-` seçili değil (devre dışı), `~` PHP çekirdeğine derlenmiş (kapatılamaz).
+
+```text
+- amqp
+- apcu
++ bcmath
+- bitset
+- brotli
+~ bz2
+~ calendar
+~ core
+~ ctype
+~ curl
+~ date
+- dba
+- dbase
+- diseval
++ dom
+- eio
+- enchant
+~ exif
+- ffi
++ fileinfo
+~ filter
+~ ftp
++ gd
+- gearman
+- gender
+- geoip
+- geos
+~ gettext
+- gmagick
+- gmp
+- gnupg
+- grpc
+~ hash
+- htscanner
+- http
+~ iconv
++ igbinary
+- imagick
+- imap
+- inotify
+- intl
++ ioncube_loader
+- jsmin
+~ json
+- ldap
+- leveldb
+~ libxml
+- luasandbox
+- lzf
+- mailparse
++ mbstring
+- mcrypt
+- memcache
+- memcached
+- mongodb
++ msgpack
+- mysqli
++ mysqlnd
++ nd_mysqli
+- nd_pdo_mysql
+- newrelic
+- oauth
+- oci8
+- odbc
++ opcache
+~ openssl
+~ pcntl
+~ pcre
+- pdf
++ pdo
+- pdo_dblib
+- pdo_firebird
++ pdo_mysql
+- pdo_oci
+- pdo_odbc
+- pdo_pgsql
+- pdo_sqlite
+- pdo_sqlsrv
+- pgsql
+- phalcon5
++ phar
+- phpiredis
++ posix
+- protobuf
+- pspell
+- psr
+~ random
+- raphf
+- rar
+~ readline
++ redis
+~ reflection
+- rrd
+- scoutapm
+~ session
+~ shmop
+~ simplexml
+- snmp
+- snuffleupagus
+- soap
+- sockets
+- sodium
+- solr
+- sourceguardian
+~ spl
+~ sqlite3
+- sqlsrv
+- ssh2
+~ standard
+- stats
+- swoole
+- sysvmsg
+- sysvsem
+- sysvshm
+- tideways_xhprof
+- tidy
+- timezonedb
+~ tokenizer
+- trader
+- uploadprogress
+- uuid
+- vips
+- vld
+- xdebug
+- xdiff
+~ xml
++ xmlreader
+- xmlrpc
++ xmlwriter
++ xsl
+- yaf
+- yaml
+- yaz
++ zip
+~ zlib
+- zmq
+```
+
+Aktif (`+`) eklentiler: `bcmath`, `dom`, `fileinfo`, `gd`, `igbinary`, `ioncube_loader`, `mbstring`, `msgpack`, `mysqlnd`, `nd_mysqli`, `opcache`, `pdo`, `pdo_mysql`, `phar`, `posix`, `redis`, `xmlreader`, `xmlwriter`, `xsl`, `zip`. Dikkat çekici nokta: klasik `mysqli` devre dışıyken onun yerel sürücüsü `mysqlnd` ve CloudLinux `nd_mysqli` varyantı aktiftir.
