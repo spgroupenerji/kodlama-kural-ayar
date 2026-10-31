@@ -15,7 +15,7 @@ Buradan bilgi almak isteyenler için herhangi bir yasak ya da kısıtlama yok; i
 - `araclar/` — yardımcı Node betikleri (ör. sayfa ekran görüntüsü).
 - `docs/` — ortam envanteri betiği.
 - `AGENTS.md`, `CLAUDE.md`, `settings.json` — bu depoda çalışan ajanlar için anayasa ve ayar dosyaları; insan okumasından çok ajan davranışını sabitlemek içindir.
-- Kök `*.md` dosyaları — tek konuluk rehberler ve notlar: ajan araç kataloğu, Windows'ta kodlama, kaynak linkleri, haber çekme kuralları, PHP yapı konvansiyonu, GitHub + cPanel deploy, rclone aktarımları, sunucu karşılaştırması, HTML etiket rehberi, model kurulumları.
+- Kök `*.md` dosyaları — tek konuluk rehberler ve notlar: Windows'ta kodlama, haber çekme kuralları, PHP yapı konvansiyonu, GitHub + cPanel deploy, rclone aktarımları, sunucu karşılaştırması, HTML etiket rehberi, model kurulumları.
 
 ## Kullanım
 
@@ -31,4 +31,4 @@ Bu depo dağınık kişisel notlardan oluşur. Daha düzenli projeler (Rust masa
 
 - https://github.com/spgroupenerji?tab=repositories
 
-Son güncelleme: 2026-10-28
+Son güncelleme: 2026-10-31
