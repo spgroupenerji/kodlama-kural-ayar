@@ -1,6 +1,6 @@
 # ZCode + OpenCode Model Kurulum Notu
 
-> Kaynak: bu depoda bizzat doğrulanan kurulum ve models.dev canlı kataloğu (`opencode models --refresh`, 2026-10-24).
+> Kaynak: models.dev kataloğu ve yerel doğrulama · v202610310311
 
 İki ayrı katman var, birbirini etkilemez:
 

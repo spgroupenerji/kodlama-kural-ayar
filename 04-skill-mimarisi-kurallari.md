@@ -1,6 +1,6 @@
 # Üretim Skill Mimarisi — Uyulması Gereken Temel Mühendislik Kuralları
 
-> Kaynak: kullanıcı notu (2026-10-28). Üretim (production) seviyesinde eksiksiz, güvenli ve ölçeklenebilir bir Skill (Yetenek) mimarisi kurarken uyulacak temel mühendislik kurallarını madde madde toplar; her bölüm kendi konusunu bağlar.
+> Kaynak: kullanıcı notu · v202610310311
 
 ## 1. Niyet Algılama ve Yönlendirme Kuralları
 

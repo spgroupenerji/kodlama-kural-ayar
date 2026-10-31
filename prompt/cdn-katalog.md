@@ -1,7 +1,6 @@
 # CDN Araç Kataloğu — HTML Projeleri
 
-> Kaynak: kullanıcı notu (2026-10-23).
-> Kapsam: Esas proje Vite + React SPA olarak derlenir ve kütüphanelerini npm ile kurar; bu katalog HTML tabanlı prototip ve yan projeler içindir (bkz. `prompt.md`, 2. blok). Katalog bir seçim havuzudur; her proje yalnızca ihtiyaç duyduğu araçları yükler. Üretimde sürümler sabitlenir ve CDN yolları uygulama anında doğrulanır.
+> Kaynak: kullanıcı notu · v202610310311
 
 **Çatı ve UI altyapısı**
 - React + ReactDOM — bileşen tabanlı SPA (ESM/esm.sh; React 19 UMD yayınlamaz)

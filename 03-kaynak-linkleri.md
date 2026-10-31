@@ -1,6 +1,6 @@
 # Kaynak Linkleri
 
-> Kaynak: `01-ajan-arac-katalogu.md` 5.3'ün son maddesi, 6 ve 7. bölümlerden ayrıldı (2026-10-25); 2026-10-28'de kullanıcı eklemeleriyle genişletildi. Bağlantılar 2026-10-28 ve 2026-10-31 tarihlerinde canlı doğrulandı (HTTP 200); açıklamalar depo/sayfa açıklamalarından yeniden yazıldı. 2026-10-31'de sekiz bağlantı 01 kataloğuna taşındı; `prompt-motion.com` bu listeye alındı.
+> Kaynak: `01-ajan-arac-katalogu.md` · v202610310311
 
 ## 1. Ajan ve CLI Dokümantasyonu
 

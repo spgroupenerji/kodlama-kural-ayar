@@ -1,13 +1,13 @@
 # Ajan Araçları Kataloğu
 
-> Bu dosya, ajan oturumunda "hangi işe hangi araç" sorusunu hızlı yanıtlamak için tutulan kişisel bir katalogdur. Bağlantılar 2026-10-28 tarihinde HTTP durum koduyla doğrulandı; 2026-10-30'da eklenen dört bağlantı ve 2026-10-31'de eklenip `npx skills add -g` ile kurulan beceri bağlantıları aynı gün HTTP 200 ile doğrulandı; HTTP 200 dışında yanıt veren giriş ayrıca işaretlendi. 2026-10-31'de katalog yeniden düzenlendi: sekiz hareketli grafik bağlantısı çıkarıldı, `prompt-motion.com` kaynak listesine taşındı, kaynak listesindeki sekiz bağlantı buraya alındı ve iki alt beceri eklendi. Her madde `- URL - açıklama` kalıbındadır; bağlantılar değiştirilmez, güncelliği doğrulanamayan bilgi "doğrulanmalı" etiketi taşır.
+> Kaynak: kullanıcı notları ve resmî depo/sayfa açıklamaları · v202610310311
 
 ## 0. Benim İçin Kritik
 
 Bu dördü, ajan oturumlarında en sık başvurduğum temel araçlar; diğer bölümlerde tekrar edilmez.
 
 - https://github.com/obra/superpowers - Ajanı hemen koda daldırmayıp beyin fırtınası, şartname, planlama ve TDD adımlarından geçiren metodoloji çerçevesi.
-- https://github.com/spgroupenerji/skills - SP GROUP ajan yeteneklerinin deposu (2026-10-30, HTTP 200); yetenek kataloğu depodaki `README.md` dosyasındadır.
+- https://github.com/spgroupenerji/skills - SP GROUP ajan yeteneklerinin deposu; yetenek kataloğu depodaki `README.md` dosyasındadır.
 - https://github.com/upstash/context7 - Kütüphane ve framework dokümantasyonunu sürüm bazlı MCP üzerinden vererek uydurma API kullanımını engelleyen platform.
 - https://github.com/ChromeDevTools/chrome-devtools-mcp - Ajanların Chrome'u MCP üzerinden kontrol etmesini, DOM ve ağ trafiğini denetlemesini sağlayan resmî Chrome DevTools aracı; kurulumda kullanılacak tarayıcı profil dizinini ister.
 

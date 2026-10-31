@@ -1,6 +1,6 @@
 # rclone ile Google Fotoğraflar'a Toplu Aktarım Rehberi (400+ GB / 4 Klasör)
 
-> Kaynak: rclone resmî belgeleri — `https://rclone.org/googlephotos/` ve `https://rclone.org/remote_setup/` (Context7 `/rclone/rclone` üzerinden 2026-10-23 tarihinde doğrulandı). Komutlar, rclone_gui konteynerinin Portainer konsolunda (`/data #` istemi) çalıştırılacak şekilde hazırlanmıştır.
+> Kaynak: rclone resmî belgeleri — https://rclone.org/googlephotos/, https://rclone.org/remote_setup/ · v202610310311
 
 ## 1. Bu Belge Ne Zaman Kullanılır?
 

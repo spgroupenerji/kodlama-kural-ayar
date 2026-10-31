@@ -1,6 +1,6 @@
 # Windows'ta Kodlama
 
-> Kaynak: `linkler.md` 7–8. bölümlerden ayrıldı (2026-10-23); bağlantı listesi `01-ajan-arac-katalogu.md` dosyasındadır.
+> Kaynak: kullanıcı notları · v202610310311
 
 ## 1. Kurulum Komutları
 

@@ -1,6 +1,6 @@
 # Sunucu Bilgileri — Ortam Karşılaştırması ve PHP Eklenti Envanteri
 
-> Kaynak: `sunucu.jpg` (phpMyAdmin sistem bilgileri ekran görüntüsü) ve SSH oturum dökümü (2026-10-23).
+> Kaynak: `sunucu.jpg` ve SSH oturum dökümü · v202610310311
 
 İki farklı barındırma ortamının phpMyAdmin sistem bilgileri: sol sütun yerel/Windows, sağ sütun cPanel (CloudLinux).
 

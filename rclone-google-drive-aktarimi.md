@@ -1,6 +1,6 @@
 # rclone ile Google Drive'a Klasör Yapısıyla Aktarım Rehberi (400+ GB / 4 Klasör)
 
-> Kaynak: rclone resmî belgeleri — `https://rclone.org/drive/` ve `https://rclone.org/remote_setup/` (Context7 `/rclone/rclone` üzerinden 2026-10-23 tarihinde doğrulandı). Komutlar, rclone_gui konteynerinin Portainer konsolunda (`/data #` istemi) çalıştırılacak şekilde hazırlanmıştır.
+> Kaynak: rclone resmî belgeleri — https://rclone.org/drive/, https://rclone.org/remote_setup/ · v202610310311
 
 ## 1. Bu Belge Ne Zaman Kullanılır?
 

@@ -1,6 +1,6 @@
 # HTML Etiket Rehberi
 
-> Kaynak: `HTML-kodları.pdf` (PDF, tam metin aktarımı)
+> Kaynak: `HTML-kodları.pdf` · v202610310311
 
 ## Ana Yerleşim Etiketleri
 

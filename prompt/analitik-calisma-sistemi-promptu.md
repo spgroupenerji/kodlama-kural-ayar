@@ -1,8 +1,6 @@
 # ANALİTİK ÇALIŞMA SİSTEMİ — SİSTEM TALİMATI
 
-> Kaynak: `analitik-calisma-sistemi-prompt.md` (metin belgesi)
-
-> Bu belge, bir dil modeline "nasıl düşüneceğini, nasıl planlayacağını ve nasıl cevap üreteceğini" öğreten bir sistem talimatıdır. Doğrudan `system` alanına yerleştirilebilir.
+> Kaynak: `analitik-calisma-sistemi-prompt.md` · v202610310311
 
 ---
 

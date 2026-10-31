@@ -1,6 +1,6 @@
 # Kontak Haber — Haber Çekme ve Yayınlama Kuralları
 
-> Kaynak: kullanıcı notu (2026-10-28). PHP ve Python'un birlikte bulunduğu projelerde haber akışını arka planda toplayıp ön yüze JSON olarak sunmak için uyulacak kuralları, doğrulanmış uç noktaları ve entegrasyon kodlarını madde madde toplar. Aşağıdaki RSS uç noktalarının tamamı 2026-10-28 tarihinde HTTP 200 ve dolu içerik listesiyle doğrulandı; ücretsiz paket kota ve gecikme bilgileri aynı gün sağlayıcıların fiyatlandırma sayfalarından okundu.
+> Kaynak: kullanıcı notu · v202610310311
 
 ## 1. Temel Mimari Kurallar
 

@@ -1,6 +1,6 @@
 # Antigravity Önemli Ayarlar — Terminal Komutları Deny List
 
-> Kaynak: `antigravity önemli ayar.png` (ekran görüntüsü)
+> Kaynak: `antigravity önemli ayar.png` · v202610310311
 
 Antigravity IDE'de **Deny List Terminal Commands** ayar ekranı. Ajan, deny listesindeki kurallarla eşleşen terminal komutlarını çalıştırmadan önce izin ister.
 

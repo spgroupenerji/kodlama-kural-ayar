@@ -1,6 +1,6 @@
 # PHP Yapı Konvansiyonu — Uygulama ve Web Sitesi
 
-> Kaynak: bu repodaki `php-uygulama-yapisi.md`, `web-sitesi-yapisi.md` ve `istemci-tarafi-belge-uretimi.md` belgelerinin tek dosyada birleşimi (2026-10-24). Yeni proje kurulumu ve denetimi için kopyala-yapıştır referansıdır; her projenin kendi `docs/YAPI.md` dosyası o ağacın tek otoritesidir.
+> Kaynak: bu depodaki PHP yapı belgeleri · v202610310311
 
 İki proje tipi aynı çekirdeği paylaşır: oturumlu panel uygulaması ve halka açık SEO odaklı web sitesi. Ortak kurallar §1'de, her tipin iskeleti ve akışları §2–§3'te, farklar §4'te, belge üretimi §5'tedir.
 
